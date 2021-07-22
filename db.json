@@ -1,0 +1,6 @@
+{
+  "tasks": [
+    {"id": 1, "name": "Cutting board", "date":"Feb 2nd", "important": false}, 
+    {"id": 2, "name": "Set up", "date":"Feb 2nd", "important": false}
+  ]
+}
