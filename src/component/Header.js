@@ -1,7 +1,7 @@
 import Button from './Button'
 import PropTypes from 'prop-types'
 
-
+//Header Component
 const Header = ({title, onAddTask}) => {
     return (
         <header className='header'>

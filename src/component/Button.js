@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 
+//Button Component
 const Button = ({text, color, onClick}) => {
     return (
         <button 
