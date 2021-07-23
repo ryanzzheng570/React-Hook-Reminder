@@ -50,7 +50,20 @@ const App = () => {
 
   //Handler to toggle the checkbox
   const toggleImportance = (id) => {
-    setTasks(tasks.map((task) => task.id === id ? {...task, important: !task.important} : task));
+    const taskToToggle = await fetch(id);
+    const updTask = {...taskToToggle, important: !taskToToggle.important}
+
+    const res = await fetch(`${serverAddress}/tasks/${id}`,{
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(updTask)
+    })
+
+    const data = await res.json();
+
+    setTasks(tasks.map((task) => task.id === id ? {...task, important: !data.important} : task));
   }
 
     return (
