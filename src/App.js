@@ -5,6 +5,7 @@ import Header from './component/Header';
 import { Tasks } from './component/Tasks';
 import AddTask from './component/AddTask';
 import {fetchTasks} from "./util/dataFetch"
+import { serverAddress } from './util/constants';
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false);
@@ -24,15 +25,26 @@ const App = () => {
 
 
  //handler to add a new task
-  const onAddTask = (task) => {
-    //get random id (assuming same number will not be used twice)
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const newTask = {id, ...task}
-    setTasks([...tasks, newTask])
+  const onAddTask = async (task) => {
+    const res = await fetch(`${serverAddress}/tasks`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    })
+
+    //Wait until promise is finished
+    const data = await res.json();
+    setTasks([...tasks, data]);
   }
 
   //Handler to delete a task
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+    await fetch(`${serverAddress}/tasks/${id}`, {
+      method: 'DELETE',
+    })
+
     setTasks(tasks.filter((task) => task.id !== id));
   }
 
