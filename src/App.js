@@ -6,6 +6,7 @@ import { Tasks } from './component/Tasks';
 import AddTask from './component/AddTask';
 import {fetchTasks} from "./util/dataFetch"
 import { serverAddress } from './util/constants';
+import Footer from './component/Footer';
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false);
@@ -49,7 +50,7 @@ const App = () => {
   }
 
   //Handler to toggle the checkbox
-  const toggleImportance = (id) => {
+  const toggleImportance = async (id) => {
     const taskToToggle = await fetch(id);
     const updTask = {...taskToToggle, important: !taskToToggle.important}
 
