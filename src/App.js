@@ -7,6 +7,8 @@ import AddTask from './component/AddTask';
 import {fetchTasks} from "./util/dataFetch"
 import { serverAddress } from './util/constants';
 import Footer from './component/Footer';
+import About from './component/About';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false);
@@ -68,14 +70,26 @@ const App = () => {
   }
 
     return (
+      <Router>
       <div className='container'>
         <Header onAddTask={()=>setShowAddTask(!showAddTask)}/>
-        {tasks.length > 0 ? 
-        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleImportance}/>:
-        'No Tasks'}
-
-        {showAddTask && <AddTask onAddTask={onAddTask}/>}
+        <Route 
+          path='/'
+          exact
+          remder={
+            <>
+           {tasks.length > 0 ? 
+            <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleImportance}/>:
+           'No Tasks'}
+           {showAddTask && <AddTask onAddTask={onAddTask}/>}
+            </>
+          }
+        />
+        
+        <Route path='/about' component={About}/>
+        <Footer/>
       </div>
+      </Router>
     );
 }
 
