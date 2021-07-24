@@ -5,7 +5,7 @@ const About = () => {
     return (
         <div>
             <h4>This website is to demonstrate and practice the understanding of React-Hook, React-Router-Dom</h4>
-            <Link href="/">Go back</Link>
+            <Link to="/">Go back</Link>
         </div>
     )
 }

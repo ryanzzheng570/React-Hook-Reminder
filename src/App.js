@@ -75,15 +75,14 @@ const App = () => {
         <Header onAddTask={()=>setShowAddTask(!showAddTask)}/>
         <Route 
           path='/'
-          exact
-          remder={
+          exact render={(props) => (
             <>
            {tasks.length > 0 ? 
             <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleImportance}/>:
            'No Tasks'}
            {showAddTask && <AddTask onAddTask={onAddTask}/>}
             </>
-          }
+          )}
         />
         
         <Route path='/about' component={About}/>
