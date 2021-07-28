@@ -1,5 +1,5 @@
-# Reminder Program using React Hook
-
+# Sushi Restaurant Online Ordering/Reservation Program using React Hook
+  - Primarily finished Reminder section
 
 ## Available Scripts
 
