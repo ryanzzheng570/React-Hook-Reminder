@@ -1,7 +1,8 @@
 import {useState} from 'react';
+import { FaTimes } from 'react-icons/fa';
 
 //Add Task Form
-const AddTask = ({onAddTask}) => {
+const AddTask = ({onAddTask, toggleShowAddTask}) => {
     const [taskName, setTaskName] = useState('');
     const [date, setDate] = useState('');
     const [important, setimportant] = useState(false);
@@ -23,10 +24,16 @@ const AddTask = ({onAddTask}) => {
         setTaskName('');
         setDate('');
         setimportant(false);
+        toggleShowAddTask();
     }
 
     return (
         <form className='add-form' onSubmit={onSubmit}>
+            <div>
+                <h2>Add New Task</h2>
+                <FaTimes className='delete' onClick={toggleShowAddTask}/>
+            </div>
+            
             <div className='form-control'>
                 <label>Task</label>
                 <input 
