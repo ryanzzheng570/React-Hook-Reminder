@@ -3,12 +3,14 @@ import './App.css';
 import About from './component/About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AddReminder from './component/AddReminder';
+import MainMenu from './component/MainMenu';
 
 const App = () => {
     return (
       <Router>
-      <Route path='/reminder' component={AddReminder}/>
-      <Route path='/about' component={About}/>
+        <Route path='/' exact component={MainMenu}/>
+        <Route path='/reminder' component={AddReminder}/>
+        <Route path='/about' component={About}/>
       </Router>
     );
 }
