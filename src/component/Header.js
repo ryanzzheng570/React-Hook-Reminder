@@ -9,7 +9,7 @@ const Header = ({title, onAddTask}) => {
     return (
         <header className='header'>
             <h1>{title}</h1>
-            {location.pathname === '/' && (<Button text='Add' onClick={onAddTask}/>)}
+            {location.pathname === '/reminder' && (<Button text='Add' onClick={onAddTask}/>)}
         </header>
     )
 }
