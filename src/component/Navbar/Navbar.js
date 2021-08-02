@@ -1,8 +1,11 @@
-import { AppBar, Toolbar, IconButton, Typography, Button, Drawer } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, Button, Drawer, Divider } from '@material-ui/core';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+import { SUSHI_TYPE } from '../../util/constants';
+import { List, ListItem, ListItemIcon, ListItemText, CssBaseline } from '@material-ui/core';
+import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import { minHeight } from '@material-ui/system';
+import { GiSushis } from 'react-icons/gi';
 
 const drawerWidth = 250;
 const toolbarHeight = 70;
@@ -36,13 +39,9 @@ const Navbar = () => {
 
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
-                    {/* <IconButton edge="start" className={useStyles().menuButton} color="inherit" aria-label="menu">
-                    <MenuIcon />
-                </IconButton> */}
                     <Typography variant="h6" className={classes.title}>
                         Restaurant Name
                     </Typography>
-                    {/* <Button color="inherit">Login</Button> */}
                 </Toolbar>
             </AppBar>
 
@@ -53,9 +52,24 @@ const Navbar = () => {
                 anchor='left'
                 classes={{ paper: classes.drawerPaper }}
             >
-                <div>
-                    <Typography variant='h5'>List of Item puts here</Typography>
-                </div>
+                <CssBaseline/>
+                <List>
+                    <ListItem button key={"MainMenu"}>
+                         <ListItemIcon><RestaurantMenuIcon/></ListItemIcon>
+                        <ListItemText primary={"MainMenu"}/>
+                    </ListItem>
+                </List>
+                <Divider/>
+                <List>
+                    {SUSHI_TYPE.map((text) => (
+                        <ListItem button key={text}>
+                        
+                        {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
+                        <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
+                <Divider/>
             </Drawer>
 
         </div>
