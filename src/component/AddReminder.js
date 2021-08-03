@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react' 
 import Header from './Header';
-import { Tasks } from './Tasks';
-import {fetchTasks} from "../util/dataFetch"
+import { Tasks } from './Task/Tasks';
+import { fetchTasks } from "../util/dataFetch"
 import { serverAddress, HTTP_HEADER } from '../util/constants';
 import Footer from './Footer';
-import AddTask from './AddTask';
+import AddTask from './Task/AddTask';
 
 const AddReminder = () => {
     const [showAddTask, setShowAddTask] = useState(false);
