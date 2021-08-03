@@ -4,7 +4,7 @@ import About from './component/About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AddReminder from './component/AddReminder';
 import MainMenu from './component/MainMenu';
-import Navbar from './component/Navbar/Navbar';
+import Navbar from './component/Navigation/Navbar';
 
 const App = () => {
     return (

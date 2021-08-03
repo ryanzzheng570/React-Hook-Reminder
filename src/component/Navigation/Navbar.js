@@ -5,8 +5,7 @@ import { SUSHI_TYPE } from '../../util/constants';
 import { List, ListItem, ListItemIcon, ListItemText, CssBaseline } from '@material-ui/core';
 import MakiIcon from '../Icon/MakiIcon';
 import HomeIcon from '@material-ui/icons/Home';
-import { minHeight } from '@material-ui/system';
-import { GiSushis } from 'react-icons/gi';
+import InfoIcon from '@material-ui/icons/Info';
 
 const drawerWidth = 250;
 const toolbarHeight = 70;
@@ -33,7 +32,7 @@ const Navbar = () => {
             backgroundColor: theme.palette.background.default,
             padding: theme.spacing(3),
         },
-        home_icon: {
+        icon: {
             paddingLeft: iconLeftPadding,
         },
         sushi_type_icon: {
@@ -65,7 +64,7 @@ const Navbar = () => {
                 <CssBaseline />
                 <List>
                     <ListItem button key={"MainMenu"}>
-                        <ListItemIcon className={classes.home_icon}>
+                        <ListItemIcon className={classes.icon}>
                             <HomeIcon />
                         </ListItemIcon>
                         <ListItemText primary={"MainMenu"} />
@@ -85,6 +84,14 @@ const Navbar = () => {
                     ))}
                 </List>
                 <Divider />
+                <List>
+                    <ListItem button key={"Info"}>
+                        <ListItemIcon className={classes.icon}>
+                            <InfoIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary={"Info"} />
+                    </ListItem>
+                </List>
             </Drawer>
 
         </div>
