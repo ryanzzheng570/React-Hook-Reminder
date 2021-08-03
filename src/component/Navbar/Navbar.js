@@ -3,12 +3,15 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { SUSHI_TYPE } from '../../util/constants';
 import { List, ListItem, ListItemIcon, ListItemText, CssBaseline } from '@material-ui/core';
-import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
+import MakiIcon from '../Icon/MakiIcon';
+import HomeIcon from '@material-ui/icons/Home';
 import { minHeight } from '@material-ui/system';
 import { GiSushis } from 'react-icons/gi';
 
 const drawerWidth = 250;
 const toolbarHeight = 70;
+const iconLeftPadding = 10;
+const iconBottomPadding = 6;
 
 const Navbar = () => {
 
@@ -30,6 +33,13 @@ const Navbar = () => {
             backgroundColor: theme.palette.background.default,
             padding: theme.spacing(3),
         },
+        home_icon: {
+            paddingLeft: iconLeftPadding,
+        },
+        sushi_type_icon: {
+            paddingLeft: iconLeftPadding,
+            paddingBottom: iconBottomPadding
+        }
     }));
 
     const classes = useStyles();
@@ -52,24 +62,29 @@ const Navbar = () => {
                 anchor='left'
                 classes={{ paper: classes.drawerPaper }}
             >
-                <CssBaseline/>
+                <CssBaseline />
                 <List>
                     <ListItem button key={"MainMenu"}>
-                         <ListItemIcon><RestaurantMenuIcon/></ListItemIcon>
-                        <ListItemText primary={"MainMenu"}/>
+                        <ListItemIcon className={classes.home_icon}>
+                            <HomeIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"MainMenu"} />
                     </ListItem>
                 </List>
-                <Divider/>
+                <Divider />
                 <List>
                     {SUSHI_TYPE.map((text) => (
                         <ListItem button key={text}>
-                        
-                        {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                        <ListItemText primary={text} />
+
+                            <ListItemIcon className={classes.sushi_type_icon}>
+                                {/* TODO: map each types of sushi to each type of icon */}
+                                <MakiIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={text} />
                         </ListItem>
                     ))}
                 </List>
-                <Divider/>
+                <Divider />
             </Drawer>
 
         </div>
