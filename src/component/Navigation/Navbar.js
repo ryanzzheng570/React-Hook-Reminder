@@ -12,6 +12,7 @@ const toolbarHeight = 70;
 const iconLeftPadding = 10;
 const iconBottomPadding = 6;
 
+//Navigation component based on Material UI
 const Navbar = () => {
 
     const useStyles = makeStyles((theme) => ({
