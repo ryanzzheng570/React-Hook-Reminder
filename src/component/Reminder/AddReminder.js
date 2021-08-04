@@ -1,12 +1,13 @@
 import React from 'react'
 import { useState, useEffect } from 'react' 
-import Header from './Header';
-import { Tasks } from './Task/Tasks';
-import { fetchTasks } from "../util/dataFetch"
-import { serverAddress, HTTP_HEADER } from '../util/constants';
-import Footer from './Footer';
-import AddTask from './Task/AddTask';
+import ReminderHeader from './ReminderHeader';
+import { Tasks } from '../Task/Tasks';
+import { fetchTasks } from "../../util/dataFetch"
+import { serverAddress, HTTP_HEADER } from '../../util/constants';
+import Footer from '../Footer';
+import AddTask from '../Task/AddTask';
 
+// Add reminder functionality
 const AddReminder = () => {
     const [showAddTask, setShowAddTask] = useState(false);
 
@@ -68,7 +69,7 @@ const AddReminder = () => {
     }
     return (
         <div className='container'>
-        <Header onAddTask={toggleShowAddTask}/>
+        <ReminderHeader onAddTask={toggleShowAddTask}/>
            {tasks.length > 0 ? 
             <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleImportance}/> :
            'No Tasks'}

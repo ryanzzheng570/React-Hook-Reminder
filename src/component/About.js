@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+//Info
 const About = () => {
     return (
         <div>

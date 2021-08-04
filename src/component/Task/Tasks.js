@@ -1,6 +1,7 @@
 import React from 'react';
 import Task from './Task';
 
+//Tasks component to display the list of tasks
 export const Tasks = ({tasks, onDelete, onToggle}) => {
     return (
         <>

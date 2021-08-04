@@ -1,9 +1,9 @@
-import Button from './Button'
+import Button from '../Button'
 import PropTypes from 'prop-types'
 import { useLocation } from 'react-router'
 
-//Header Component
-const Header = ({title, onAddTask}) => {
+//Reminder Header Component
+const ReminderHeader = ({title, onAddTask}) => {
     const location = useLocation();
 
     return (
@@ -22,4 +22,4 @@ Header.propTypes = {
     title: PropTypes.string.isRequired
 }
 
-export default Header
+export default ReminderHeader

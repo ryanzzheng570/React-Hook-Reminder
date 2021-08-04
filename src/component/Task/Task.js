@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaTimes } from 'react-icons/fa';
 
+//Task Component
 export const Task = ({task, onDelete, onToggle}) => {
     return (
         <div className={`task ${task.important ? 'reminder' : ''}`} onDoubleClick={()=>onToggle(task.id)}>
