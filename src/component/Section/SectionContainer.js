@@ -2,14 +2,14 @@ import React from 'react'
 
 const SectionContainer = ({name, description, ItemOne, ItemTwo, ItemThree}) => {
     return (
-        <div>
+        <div className={'section_container'}>
             <h3>{name}</h3>
             <p>{description}</p>
-            <div>
-                {/* <ItemOne/>
-                <ItemTwo/>
+            <section className='section_items_container'>
+                <ItemOne/>
+                {/* <ItemTwo/>
                 <ItemThree/> */}
-            </div>
+            </section>
 
         </div>
     )
