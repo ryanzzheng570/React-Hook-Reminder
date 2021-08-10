@@ -3,12 +3,12 @@ import React from 'react'
 const SectionContainer = ({name, description, ItemOne, ItemTwo, ItemThree}) => {
     return (
         <div>
-            <h2>{name}</h2>
-            <h4>{description}</h4>
+            <h3>{name}</h3>
+            <p>{description}</p>
             <div>
-                <ItemOne/>
+                {/* <ItemOne/>
                 <ItemTwo/>
-                <ItemThree/>
+                <ItemThree/> */}
             </div>
 
         </div>

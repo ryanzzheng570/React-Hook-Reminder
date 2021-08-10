@@ -7,14 +7,16 @@ import MainMenu from './component/MainMenu';
 import Navbar from './component/Navigation/Navbar';
 
 const App = () => {
-    return (
+  return (
+    <React.Fragment>
+      <Navbar />
       <Router>
-        <Navbar/>
-        <Route path='/' exact component={MainMenu}/>
+        <Route path='/' exact component={MainMenu} />
         {/* <Route path='/reminder' component={AddReminder}/> */}
-        <Route path='/about' component={About}/>
+        <Route path='/about' component={About} />
       </Router>
-    );
+    </React.Fragment>
+  );
 }
 
 

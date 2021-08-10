@@ -6,7 +6,7 @@ import Maki from './SVG/Maki_1.svg';
 const MakiIcon = () => {
     return (
         <Icon>
-            <img src={Maki} height={27} width={27} />
+            <img alt='maki' src={Maki} height={27} width={27} />
         </Icon>
     );
 }

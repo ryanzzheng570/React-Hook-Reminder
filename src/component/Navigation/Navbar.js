@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, Typography, Button, Drawer, Divider } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Drawer, Divider } from '@material-ui/core';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { SUSHI_TYPE } from '../../util/constants';

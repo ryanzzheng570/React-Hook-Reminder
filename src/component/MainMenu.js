@@ -4,8 +4,8 @@ import SectionItem from './Section/SectionItem'
 
 const MainMenu = () => {
     return (
-        <div>
-            
+        <div className='main-menu-container'>
+            <SectionContainer name={'Sashimi'} description={'Raw Fish(5 pieces/order)'}/>
         </div>
     )
 }
