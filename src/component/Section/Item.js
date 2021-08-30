@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Item = ({name, description, labels, price}) => {
+const Item = ({ name, description, labels, price }) => {
     return (
         <div className='item'>
             <div className='info'>
@@ -12,7 +12,7 @@ const Item = ({name, description, labels, price}) => {
                 ) : <></>}
                 <span>{price}</span>
             </div>
-            <img/>
+            <img alt='' />
         </div>
     )
 }

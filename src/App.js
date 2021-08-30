@@ -1,27 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css';
-import About from './component/About';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 // import AddReminder from './component/AddReminder';
-import MainMenu from './component/MainMenu';
 import Navbar from './component/Navigation/Navbar';
 import { MuiThemeProvider } from '@material-ui/core';
 import { theme } from './themes/theme';
+import { Provider } from 'react-redux';
+import store from './store/store'
+import Routes from './Routes';
 
 const App = () => {
+
   return (
-    <React.Fragment>
+    <Provider store={store}>
       <Navbar />
       <MuiThemeProvider theme={theme}>
         <Router>
-          <Route path='/' exact component={MainMenu} />
-          {/* <Route path='/reminder' component={AddReminder}/> */}
-          <Route path='/about' component={About} />
+          <Routes />
         </Router>
       </MuiThemeProvider>
-    </React.Fragment>
+    </Provider>
   );
 }
+
 
 
 export default App;
