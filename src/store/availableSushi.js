@@ -8,9 +8,10 @@ export const setAvailableSushi = (availableSushi) => {
 };
 
 const reducer = (state = [], action) => {
-    switch (action) {
+    switch (action.type) {
         case SET_AVAILABLE_SUSHI: {
             return action.availableSushi;
+
         }
         default:
             return state;
