@@ -12,36 +12,35 @@ const toolbarHeight = 70;
 const iconLeftPadding = 10;
 const iconBottomPadding = 6;
 
+const useStyles = makeStyles((theme) => ({
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+        marginTop: toolbarHeight,
+    },
+    root: {
+        display: 'flex',
+    },
+    toolbar: { minHeight: 70 },
+    content: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        padding: theme.spacing(3),
+    },
+    icon: {
+        paddingLeft: iconLeftPadding,
+    },
+    sushi_type_icon: {
+        paddingLeft: iconLeftPadding,
+        paddingBottom: iconBottomPadding
+    }
+}));
+
 //Navigation component based on Material UI
 const Navbar = () => {
-
-    const useStyles = makeStyles((theme) => ({
-        drawer: {
-            width: drawerWidth,
-            flexShrink: 0,
-        },
-        drawerPaper: {
-            width: drawerWidth,
-            marginTop: toolbarHeight,
-        },
-        root: {
-            display: 'flex',
-        },
-        toolbar: { minHeight: 70 },
-        content: {
-            flexGrow: 1,
-            backgroundColor: theme.palette.background.default,
-            padding: theme.spacing(3),
-        },
-        icon: {
-            paddingLeft: iconLeftPadding,
-        },
-        sushi_type_icon: {
-            paddingLeft: iconLeftPadding,
-            paddingBottom: iconBottomPadding
-        }
-    }));
-
     const classes = useStyles();
 
     return (
@@ -88,7 +87,7 @@ const Navbar = () => {
                 <List>
                     <ListItem button key={"Info"}>
                         <ListItemIcon className={classes.icon}>
-                            <InfoIcon/>
+                            <InfoIcon />
                         </ListItemIcon>
                         <ListItemText primary={"Info"} />
                     </ListItem>

@@ -3,11 +3,11 @@ import MainMenu from './component/MainMenu';
 import { Route, Switch, withRouter } from 'react-router';
 import About from './component/About';
 import { connect } from 'react-redux';
-import { fetchSushi } from './store/thunkCreators';
+import { fetchSushi } from './store/utils/thunkCreators';
 
 
 const Routes = (props) => {
-    const { availableSushi, fetchSushi } = props;
+    const { fetchSushi } = props;
     useEffect(() => {
         fetchSushi();
     }, [fetchSushi])
@@ -23,12 +23,6 @@ const Routes = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        availableSushi: state.availableSushi,
-    };
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchSushi() {
@@ -37,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Routes));
+export default withRouter(connect(null, mapDispatchToProps)(Routes));

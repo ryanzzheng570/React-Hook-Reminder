@@ -1,34 +1,3 @@
-.section_container {
-    display: block;
-    background-color: rgb(250, 250, 250);
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid rgb(224, 224, 224);
-  }
-  
-.section_container h3 {
-    font-size: 27px;
-}
-  
-.section_container p {
-    margin-top: 10px;
-    font-size: 16px;
-}
-  
-.section_items_container {
-    display: flex;
-}
-
-
-.item {
-    border: 1px solid rgba(96, 96, 96, 0.2);;
-    margin-top: 15px;
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    text-align: unset;
-    align-items: unset;
-}
 
 .item .info{
     flex: 1;
