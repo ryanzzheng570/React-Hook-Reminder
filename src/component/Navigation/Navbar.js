@@ -74,7 +74,6 @@ const Navbar = () => {
                 <List>
                     {SUSHI_TYPE.map((text) => (
                         <ListItem button key={text}>
-
                             <ListItemIcon className={classes.sushi_type_icon}>
                                 {/* TODO: map each types of sushi to each type of icon */}
                                 <MakiIcon />

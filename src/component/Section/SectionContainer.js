@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
+import Items from './Items';
 
 const useSytle = makeStyles((theme) => ({
     root: {
@@ -14,7 +15,7 @@ const useSytle = makeStyles((theme) => ({
     }
 }));
 
-const SectionContainer = ({ name, description, ItemOne, ItemTwo, ItemThree }) => {
+const SectionContainer = ({ name, description, sushi }) => {
     const classes = useSytle();
 
     return (
@@ -22,9 +23,7 @@ const SectionContainer = ({ name, description, ItemOne, ItemTwo, ItemThree }) =>
             <Typography variant='h4'>{name}</Typography>
             <Typography className={classes.description}>{description}</Typography>
             <Grid container>
-                <ItemOne />
-                {/* <ItemTwo/>
-                <ItemThree/> */}
+                <Items sushi={sushi} />
             </Grid>
         </Grid>
     )
