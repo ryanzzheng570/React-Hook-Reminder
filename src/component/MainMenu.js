@@ -18,17 +18,9 @@ const useStyle = makeStyles(() => ({
 const MainMenu = (props) => {
     const classes = useStyle();
     const { sushi } = props;
-    const itemOne = () => {
-        return (<Item price='17.99' name={'Spicy Salmon Roll'} description={'Salmon come with spicy mayo, green onion, cryispy flaske and masago '} />)
-    }
 
     return (
         <Grid className={classes.root}>
-            {/* <SectionContainer
-                name={'Sashimi'}
-                description={'Raw Fish(5 pieces/order)'}
-                ItemOne={() => itemOne()}
-            /> */}
             <SectionContainer
                 name={'Maki Rolls'}
                 description={'Sushi Made in rolls and sliced into round bite-size pieces'}

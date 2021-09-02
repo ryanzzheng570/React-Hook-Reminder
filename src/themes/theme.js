@@ -7,7 +7,8 @@ export const theme = createTheme({
         button: {
             textTransform: "none",
             letterSpacing: 0,
-            fontWeight: "bold",
+            padding: 0
+            // fontWeight: "bold",
         },
         h4: {
             fontSize: 27
@@ -18,6 +19,17 @@ export const theme = createTheme({
             input: {
                 fontWeight: "bold"
             },
+        },
+        MuiButton: {
+            root: {
+                padding: 0
+            },
+            text: {
+                padding: 0
+            },
+            outlined: {
+                padding: 0
+            }
         }
     },
     palette: {
