@@ -8,7 +8,9 @@ const useSytle = makeStyles((theme) => ({
         backgroundColor: 'rgb(250, 250, 250)',
         padding: 20,
         borderRadius: 12,
-        border: '1px solid rgb(224, 224, 224)'
+        border: '1px solid rgb(224, 224, 224)',
+        minWidth: 600
+
     },
     description: {
         marginTop: 10,
