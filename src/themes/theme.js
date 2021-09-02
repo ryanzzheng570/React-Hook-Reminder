@@ -4,6 +4,7 @@ export const theme = createTheme({
     typography: {
         fontFamily: "Open Sans, sans-serif",
         fontSize: 15,
+        textAlign: 'left',
         button: {
             textTransform: "none",
             letterSpacing: 0,
@@ -29,6 +30,11 @@ export const theme = createTheme({
             },
             outlined: {
                 padding: 0
+            }
+        },
+        MuiTypography: {
+            root: {
+                textAlign: 'left'
             }
         }
     },
