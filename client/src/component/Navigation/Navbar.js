@@ -1,16 +1,14 @@
 import { AppBar, Toolbar, Typography, Drawer, Divider } from '@material-ui/core';
-import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { SUSHI_TYPE } from '../../util/constants';
+import { SUSHI_TYPES, SUSHI_TYPES_MAP } from '../../util/constants';
 import { List, ListItem, ListItemIcon, ListItemText, CssBaseline } from '@material-ui/core';
-import MakiIcon from '../Icon/MakiIcon';
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
 
 const drawerWidth = 250;
 const toolbarHeight = 70;
-const iconLeftPadding = 10;
-const iconBottomPadding = 6;
+const iconLeftPadding = 11;
+const iconBottomPadding = 1;
 
 const useStyles = makeStyles((theme) => ({
     drawer: {
@@ -38,6 +36,10 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: iconBottomPadding
     }
 }));
+
+const getSushiTypeIcon = (type) => {
+    return SUSHI_TYPES_MAP.get(type);
+}
 
 //Navigation component based on Material UI
 const Navbar = () => {
@@ -72,15 +74,15 @@ const Navbar = () => {
                 </List>
                 <Divider />
                 <List>
-                    {SUSHI_TYPE.map((text) => (
-                        <ListItem button key={text}>
+                    {SUSHI_TYPES.map((sushiType) => (
+                        <ListItem button key={sushiType}>
                             <ListItemIcon className={classes.sushi_type_icon}>
-                                {/* TODO: map each types of sushi to each type of icon */}
-                                <MakiIcon />
+                                {getSushiTypeIcon(sushiType)}
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={sushiType} />
                         </ListItem>
-                    ))}
+                    )
+                    )}
                 </List>
                 <Divider />
                 <List>
