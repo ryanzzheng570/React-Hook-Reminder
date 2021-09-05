@@ -1,6 +1,11 @@
 import MakiIcon from "../component/Icon/MakiIcon";
+import PizzaIcon from "../component/Icon/PizzaIcon";
 import SpicyMakiIcon from "../component/Icon/SpicyMakiIcon";
 import VegetarianIcon from "../component/Icon/VegetarianIcon";
+import TeriyakiIcon from "../component/Icon/TeriyakiIcon";
+import AburiOshiIcon from "../component/Icon/AburiOshiIcon";
+import PartyIcon from "../component/Icon/PartyIcon";
+import SpecialIcon from "../component/Icon/SpecialIcon";
 
 export const serverAddress = 'http://localhost:5000';
 export const HTTP_HEADER = { 'Content-type': 'application/json' };
@@ -31,9 +36,9 @@ export const SUSHI_TYPES_MAP = new Map([
     [MAKI_ROLLS, <MakiIcon />],
     [CLASSIC_SPICY_MAKI, <SpicyMakiIcon />],
     [VEGETABLE_ROLL, <VegetarianIcon />],
-    [SUSHI_PIZZA, null],
-    [TERIYAKI_MAKI_ROLL, null],
-    [ABURI_OSHI_SUSHI, null],
-    [MAKI_SUSHI_PARTY, null],
-    [SPECIAL_ROLL, null]
+    [SUSHI_PIZZA, <PizzaIcon />],
+    [TERIYAKI_MAKI_ROLL, <TeriyakiIcon />],
+    [ABURI_OSHI_SUSHI, <AburiOshiIcon />],
+    [MAKI_SUSHI_PARTY, <PartyIcon />],
+    [SPECIAL_ROLL, <SpecialIcon />]
 ]);

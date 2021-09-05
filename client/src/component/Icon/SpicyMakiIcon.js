@@ -1,5 +1,4 @@
 import { Icon } from '@material-ui/core';
-import Maki from './SVG/Maki.svg';
 import Spicy from './SVG/Spicy.svg'
 
 //Spicy Maki Icon
