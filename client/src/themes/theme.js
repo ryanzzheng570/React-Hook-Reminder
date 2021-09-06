@@ -1,6 +1,6 @@
-import { createTheme } from "@material-ui/core";
+import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core';
 
-export const theme = createTheme({
+export const theme = createMuiTheme({
     typography: {
         fontFamily: "Open Sans, sans-serif",
         fontSize: 15,
@@ -40,6 +40,6 @@ export const theme = createTheme({
     },
     palette: {
         primary: { main: "#3A8DFF" },
-        secondary: { main: "#B0B0B0" }
+        // secondary: { main: "#B0B0B0" }
     },
 });
