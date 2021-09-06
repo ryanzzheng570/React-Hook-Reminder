@@ -7,12 +7,15 @@ const useSytle = makeStyles((theme) => ({
     root: {
         minWidth: 500,
         maxHeight: 200,
-        margin: '20px 20px 10px 0'
+        margin: '20px 20px 10px 0',
     },
     info: {
         maxWidth: '70%',
         minWidth: 0,
-        padding: 20
+        padding: 20,
+        '& p': {
+            textAlign: 'left'
+        },
     },
     name: {
         fontWeight: 'bold'

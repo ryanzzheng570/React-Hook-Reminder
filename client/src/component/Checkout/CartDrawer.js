@@ -20,8 +20,8 @@ const useStyle = makeStyles((theme) => ({
     },
     cartTitle: {
         justifyContent: 'center',
-        paddingTop: 25,
-        paddingBottom: 25
+        paddingTop: theme.spacing(3),
+        paddingBottom: theme.spacing(3)
     },
     title: {
         fontWeight: 'bold',
@@ -37,7 +37,6 @@ const useStyle = makeStyles((theme) => ({
         position: "fixed",
         bottom: 0,
         textAlign: "center",
-        paddingBottom: 10,
         width: paperWidth
     },
     emptyCart: {
@@ -46,6 +45,14 @@ const useStyle = makeStyles((theme) => ({
             color: theme.palette.grey[700],
             fontSize: 22
         }
+    },
+    subtotal: {
+        paddingTop: 25,
+        paddingLeft: theme.spacing(4),
+    },
+    price: {
+        float: 'right',
+        paddingRight: theme.spacing(4)
     }
 }))
 
@@ -81,7 +88,12 @@ const CartDrawer = (props) => {
             </List>
             <div className={classes.bottomPush}>
                 <Divider />
-                <Typography>Footer</Typography>
+                <Typography gutterBottom className={classes.subtotal} variant='h4'>Subtotal
+                    <span className={classes.price}>$88.88</span>
+                </Typography>
+                <Typography>
+                    Taxes and shipping calculated at checkout
+                </Typography>
             </div>
         </Drawer >
     )

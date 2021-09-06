@@ -1,6 +1,7 @@
-import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core';
+import { createTheme } from "@material-ui/core";
 
-export const theme = createMuiTheme({
+export const mainTheme = createTheme({
+    spacing: 10,
     typography: {
         fontFamily: "Open Sans, sans-serif",
         fontSize: 15,
@@ -9,7 +10,6 @@ export const theme = createMuiTheme({
             textTransform: "none",
             letterSpacing: 0,
             padding: 0
-            // fontWeight: "bold",
         },
         h4: {
             fontSize: 27
@@ -32,11 +32,7 @@ export const theme = createMuiTheme({
                 padding: 0
             }
         },
-        MuiTypography: {
-            root: {
-                textAlign: 'left'
-            }
-        },
+
         MuiListItemText: {
             span: {
                 textAlign: 'center'
