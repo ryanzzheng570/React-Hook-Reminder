@@ -20,6 +20,9 @@ const useSytle = makeStyles((theme) => ({
     name: {
         fontWeight: 'bold'
     },
+    noPadding: {
+        padding: 0
+    },
     img: {
         backgroundColor: 'rgba(96, 96, 96, 0.2)'
     },
@@ -38,7 +41,15 @@ const Item = ({ name, description, labels, price, imageUrl }) => {
     const classes = useSytle();
 
     return (
-        <Button variant='outlined' className={classes.root}>
+        <Button
+            variant='outlined'
+            className={classes.root}
+            classes={{
+                root: classes.noPadding,
+                input: classes.noPadding,
+                outline: classes.noPadding
+            }}
+        >
             <Grid xl={'auto'} container>
 
                 <Grid container direction='column' className={classes.info}>

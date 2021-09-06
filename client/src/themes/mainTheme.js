@@ -21,23 +21,6 @@ export const mainTheme = createTheme({
                 fontWeight: "bold"
             },
         },
-        MuiButton: {
-            root: {
-                padding: 0
-            },
-            text: {
-                padding: 0
-            },
-            outlined: {
-                padding: 0
-            }
-        },
-
-        MuiListItemText: {
-            span: {
-                textAlign: 'center'
-            }
-        }
     },
     palette: {
         primary: { main: "#3A8DFF" },
