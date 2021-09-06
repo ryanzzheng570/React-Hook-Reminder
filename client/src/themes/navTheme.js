@@ -17,7 +17,6 @@ export const navTheme = createTheme({
     },
     palette: {
         primary: { main: 'rgb(255,166,0)' },
-        // secondary: { main: "#909090" }
 
     }
 

@@ -7,6 +7,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
 import CheckOutDrawer from '../Checkout/CartDrawer';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router';
 
 const drawerWidth = 250;
 const toolbarHeight = 70;
@@ -56,6 +57,7 @@ const getSushiTypeIcon = (type) => {
 const Navbar = () => {
     const classes = useStyles();
     const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
+    const history = useHistory();
 
     const handleCheckOutOpen = () => {
         setIsCartDrawerOpen(true);
@@ -63,6 +65,10 @@ const Navbar = () => {
     const handleCheckOutClose = () => {
         setIsCartDrawerOpen(false);
     };
+
+    const handleMainMenu = () => {
+        history.push("/")
+    }
 
     return (
         <div className={classes.root}>
@@ -93,7 +99,7 @@ const Navbar = () => {
             >
                 <CssBaseline />
                 <List>
-                    <ListItem button key={"MainMenu"}>
+                    <ListItem onClick={handleMainMenu} button key={"MainMenu"}>
                         <ListItemIcon className={classes.icon}>
                             <HomeIcon />
                         </ListItemIcon>

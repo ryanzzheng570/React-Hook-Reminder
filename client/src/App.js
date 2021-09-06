@@ -15,10 +15,10 @@ const App = () => {
   return (
     <Provider store={store}>
       <MuiThemeProvider theme={mainTheme}>
-        <MuiThemeProvider theme={navTheme}>
-          <Navbar />
-        </MuiThemeProvider>
         <Router>
+          <MuiThemeProvider theme={navTheme}>
+            <Navbar />
+          </MuiThemeProvider>
           <Routes />
         </Router>
       </MuiThemeProvider>

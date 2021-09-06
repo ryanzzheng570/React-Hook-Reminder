@@ -3,19 +3,10 @@ import SectionContainer from './Section/SectionContainer';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
-
-const useStyle = makeStyles(() => ({
-    root: {
-        marginTop: 'auto',
-        marginLeft: 250,
-        padding: 20,
-        fontFamily: 'inherit',
-        backgroundColor: 'white'
-    }
-}));
+import { rootStyle } from './styles';
 
 const MainMenu = (props) => {
-    const classes = useStyle();
+    const classes = rootStyle();
     const { sushi } = props;
 
     return (

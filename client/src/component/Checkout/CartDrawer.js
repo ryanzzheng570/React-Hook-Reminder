@@ -12,6 +12,7 @@ import {
 import CheckOutItems from './CheckOutItems';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+import { useHistory } from "react-router-dom";
 
 const paperWidth = 450;
 
@@ -63,6 +64,12 @@ const useStyle = makeStyles((theme) => ({
 const CartDrawer = (props) => {
     const classes = useStyle();
     const { open, close, checkout } = props;
+    const history = useHistory();
+
+    const handleConfirmCart = () => {
+        close();
+        history.push("/checkout");
+    }
 
     return (
         <Drawer
@@ -97,7 +104,14 @@ const CartDrawer = (props) => {
                 <Typography color='textSecondary' paragraph variant='body1'>
                     Taxes and shipping calculated at checkout
                 </Typography>
-                <Button color='primary' variant='contained' className={classes.btn}>Confirm Cart</Button>
+                <Button
+                    color='primary'
+                    variant='contained'
+                    className={classes.btn}
+                    onClick={handleConfirmCart}
+                >
+                    Confirm Cart
+                </Button>
             </div>
         </Drawer >
     )
