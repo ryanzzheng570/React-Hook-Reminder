@@ -46,8 +46,6 @@ const Item = ({ name, description, labels, price, imageUrl }) => {
             className={classes.root}
             classes={{
                 root: classes.noPadding,
-                input: classes.noPadding,
-                outline: classes.noPadding
             }}
         >
             <Grid xl={'auto'} container>
