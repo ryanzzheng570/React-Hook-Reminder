@@ -18,9 +18,6 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
 
     },
-    paper: {
-        width: 450
-    },
     appBar: {
         backgroundColor: 'rgb(255,166,0)'
     },
@@ -40,20 +37,6 @@ const useStyles = makeStyles((theme) => ({
     cartButton: {
         marginLeft: 'auto',
     },
-    checkOutTitle: {
-        justifyContent: 'center',
-    },
-    title: {
-        fontWeight: 'bold',
-        fontSize: 25
-    },
-    bottomPush: {
-        position: "fixed",
-        bottom: 0,
-        textAlign: "center",
-        paddingBottom: 10,
-        width: '100%'
-    }
 }));
 
 export default useStyles
