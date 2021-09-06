@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { fetchSushi } from './store/utils/thunkCreators';
 import CheckOut from './component/Checkout/CheckOut';
 
-
 const Routes = (props) => {
     const { fetchSushi } = props;
     useEffect(() => {
