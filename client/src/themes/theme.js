@@ -36,10 +36,15 @@ export const theme = createMuiTheme({
             root: {
                 textAlign: 'left'
             }
+        },
+        MuiListItemText: {
+            span: {
+                textAlign: 'center'
+            }
         }
     },
     palette: {
         primary: { main: "#3A8DFF" },
-        // secondary: { main: "#B0B0B0" }
+        secondary: { main: "#B0B0B0" }
     },
 });

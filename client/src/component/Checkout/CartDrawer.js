@@ -9,26 +9,43 @@ import {
     ListItemText
 } from '@material-ui/core'
 import CheckOutItems from './CheckOutItems';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+
+const paperWidth = 450;
 
 const useStyle = makeStyles((theme) => ({
     paper: {
-        width: 450
+        width: paperWidth
     },
-    checkOutTitle: {
+    cartTitle: {
         justifyContent: 'center',
+        paddingTop: 25,
+        paddingBottom: 25
     },
     title: {
         fontWeight: 'bold',
         fontSize: 25
+    },
+    middlePush: {
+        position: "fixed",
+        top: '25%',
+        paddingBottom: 10,
+        width: paperWidth,
     },
     bottomPush: {
         position: "fixed",
         bottom: 0,
         textAlign: "center",
         paddingBottom: 10,
-        width: '100%'
+        width: paperWidth
+    },
+    emptyCart: {
+        '& .MuiTypography-root': {
+            textAlign: 'center',
+            color: theme.palette.grey[700],
+            fontSize: 22
+        }
     }
 }))
 
@@ -39,7 +56,7 @@ const CartDrawer = (props) => {
     const { open, close, checkout } = props;
 
     return (
-        < Drawer
+        <Drawer
             anchor='right'
             open={open}
             onClose={close}
@@ -47,7 +64,7 @@ const CartDrawer = (props) => {
         >
             <CssBaseline />
             <List>
-                <ListItem className={classes.checkOutTitle}>
+                <ListItem className={classes.cartTitle}>
                     <Typography className={classes.title}>SHOPPING CART</Typography>
                 </ListItem>
             </List>
@@ -57,8 +74,8 @@ const CartDrawer = (props) => {
                     <>
                         <CheckOutItems items={checkout} />
                     </>
-                    : (<ListItem divider>
-                        <ListItemText> Your cart is currently empty</ListItemText>
+                    : (<ListItem className={classes.middlePush}>
+                        <ListItemText className={classes.emptyCart}> Your cart is currently empty. </ListItemText>
                     </ListItem>)
                 }
             </List>
