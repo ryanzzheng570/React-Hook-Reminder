@@ -7,15 +7,21 @@ const useSytle = makeStyles((theme) => ({
     root: {
         minWidth: 500,
         maxHeight: 200,
-        margin: '20px 20px 10px 0'
+        margin: '20px 20px 10px 0',
     },
     info: {
         maxWidth: '70%',
         minWidth: 0,
-        padding: 20
+        padding: 20,
+        '& p': {
+            textAlign: 'left'
+        },
     },
     name: {
         fontWeight: 'bold'
+    },
+    noPadding: {
+        padding: 0
     },
     img: {
         backgroundColor: 'rgba(96, 96, 96, 0.2)'
@@ -35,7 +41,13 @@ const Item = ({ name, description, labels, price, imageUrl }) => {
     const classes = useSytle();
 
     return (
-        <Button variant='outlined' className={classes.root}>
+        <Button
+            variant='outlined'
+            className={classes.root}
+            classes={{
+                root: classes.noPadding,
+            }}
+        >
             <Grid xl={'auto'} container>
 
                 <Grid container direction='column' className={classes.info}>

@@ -1,6 +1,7 @@
 import { createTheme } from "@material-ui/core";
 
-export const theme = createTheme({
+export const mainTheme = createTheme({
+    spacing: 10,
     typography: {
         fontFamily: "Open Sans, sans-serif",
         fontSize: 15,
@@ -9,7 +10,6 @@ export const theme = createTheme({
             textTransform: "none",
             letterSpacing: 0,
             padding: 0
-            // fontWeight: "bold",
         },
         h4: {
             fontSize: 27
@@ -21,22 +21,6 @@ export const theme = createTheme({
                 fontWeight: "bold"
             },
         },
-        MuiButton: {
-            root: {
-                padding: 0
-            },
-            text: {
-                padding: 0
-            },
-            outlined: {
-                padding: 0
-            }
-        },
-        MuiTypography: {
-            root: {
-                textAlign: 'left'
-            }
-        }
     },
     palette: {
         primary: { main: "#3A8DFF" },
