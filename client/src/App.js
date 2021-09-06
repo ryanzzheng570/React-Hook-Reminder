@@ -14,10 +14,10 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <MuiThemeProvider theme={navTheme}>
-        <Navbar />
-      </MuiThemeProvider>
       <MuiThemeProvider theme={mainTheme}>
+        <MuiThemeProvider theme={navTheme}>
+          <Navbar />
+        </MuiThemeProvider>
         <Router>
           <Routes />
         </Router>

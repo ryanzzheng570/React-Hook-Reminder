@@ -2,11 +2,51 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Drawer, Divider } from '@material-ui/core';
 import { SUSHI_TYPES, SUSHI_TYPES_MAP } from '../../util/constants';
 import { List, ListItem, ListItemIcon, ListItemText, CssBaseline, IconButton, Badge } from '@material-ui/core';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
-import useStyles from './styles';
 import CheckOutDrawer from '../Checkout/CartDrawer';
+import { makeStyles } from '@material-ui/core/styles';
+
+const drawerWidth = 250;
+const toolbarHeight = 70;
+const iconLeftPadding = 11;
+const iconBottomPadding = 1;
+
+const useStyles = makeStyles((theme) => ({
+    navDrawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+        marginTop: toolbarHeight,
+    },
+    root: {
+        flexGrow: 1,
+
+    },
+    appBar: {
+        backgroundColor: 'rgb(255,166,0)'
+    },
+    toolbar: { minHeight: 70 },
+    content: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        padding: theme.spacing(3),
+    },
+    icon: {
+        paddingLeft: iconLeftPadding,
+    },
+    sushi_type_icon: {
+        paddingLeft: iconLeftPadding,
+        paddingBottom: iconBottomPadding
+    },
+    cartButton: {
+        marginLeft: 'auto',
+        color: 'white'
+    },
+}));
 
 const getSushiTypeIcon = (type) => {
     return SUSHI_TYPES_MAP.get(type);
@@ -31,9 +71,9 @@ const Navbar = () => {
                     <Typography variant="h6">
                         Ryan's Sushi Restaurant
                     </Typography>
-                    <IconButton className={classes.cartButton} color='inherit' onClick={handleCheckOutOpen}>
+                    <IconButton className={classes.cartButton} onClick={handleCheckOutOpen}>
                         <Badge badgeContent={1} color='secondary'>
-                            <ShoppingCartIcon />
+                            <ShoppingCartOutlinedIcon style={{ fontSize: 32 }} />
                         </Badge>
                     </IconButton>
                 </Toolbar>

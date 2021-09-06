@@ -6,7 +6,8 @@ import {
     ListItem,
     Divider,
     CssBaseline,
-    ListItemText
+    ListItemText,
+    Button
 } from '@material-ui/core'
 import CheckOutItems from './CheckOutItems';
 import { makeStyles } from '@material-ui/core/styles';
@@ -30,7 +31,7 @@ const useStyle = makeStyles((theme) => ({
     middlePush: {
         position: "fixed",
         top: '25%',
-        paddingBottom: 10,
+        paddingBottom: theme.spacing(1),
         width: paperWidth,
     },
     bottomPush: {
@@ -40,19 +41,20 @@ const useStyle = makeStyles((theme) => ({
         width: paperWidth
     },
     emptyCart: {
-        '& .MuiTypography-root': {
-            textAlign: 'center',
-            color: theme.palette.grey[700],
-            fontSize: 22
-        }
+        textAlign: 'center',
+        color: theme.palette.grey[700],
+        fontSize: 22
     },
     subtotal: {
-        paddingTop: 25,
-        paddingLeft: theme.spacing(4),
+        paddingTop: theme.spacing(2.5),
+        paddingRight: theme.spacing(7.5)
     },
     price: {
         float: 'right',
-        paddingRight: theme.spacing(4)
+    },
+    btn: {
+        marginBottom: theme.spacing(3),
+        padding: theme.spacing(1, 2)
     }
 }))
 
@@ -82,18 +84,20 @@ const CartDrawer = (props) => {
                         <CheckOutItems items={checkout} />
                     </>
                     : (<ListItem className={classes.middlePush}>
-                        <ListItemText className={classes.emptyCart}> Your cart is currently empty. </ListItemText>
+                        <ListItemText disableTypography className={classes.emptyCart}> Your cart is currently empty. </ListItemText>
                     </ListItem>)
                 }
             </List>
             <div className={classes.bottomPush}>
                 <Divider />
-                <Typography gutterBottom className={classes.subtotal} variant='h4'>Subtotal
+                <Typography gutterBottom className={classes.subtotal} variant='h4'>
+                    Subtotal:
                     <span className={classes.price}>$88.88</span>
                 </Typography>
-                <Typography>
+                <Typography color='textSecondary' paragraph variant='body1'>
                     Taxes and shipping calculated at checkout
                 </Typography>
+                <Button color='primary' variant='contained' className={classes.btn}>Confirm Cart</Button>
             </div>
         </Drawer >
     )
