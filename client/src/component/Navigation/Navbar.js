@@ -6,7 +6,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
 import useStyles from './styles';
-import CheckOutDrawer from '../Checkout/CheckOutDrawer';
+import CheckOutDrawer from '../Checkout/CartDrawer';
 
 const getSushiTypeIcon = (type) => {
     return SUSHI_TYPES_MAP.get(type);
@@ -15,13 +15,13 @@ const getSushiTypeIcon = (type) => {
 //Navigation component based on Material UI
 const Navbar = () => {
     const classes = useStyles();
-    const [isCheckOutOpen, setisCheckOutOpen] = useState(false);
+    const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
 
     const handleCheckOutOpen = () => {
-        setisCheckOutOpen(true);
+        setIsCartDrawerOpen(true);
     };
     const handleCheckOutClose = () => {
-        setisCheckOutOpen(false);
+        setIsCartDrawerOpen(false);
     };
 
     return (
@@ -29,7 +29,7 @@ const Navbar = () => {
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
                     <Typography variant="h6">
-                        Restaurant Name
+                        Ryan's Sushi Restaurant
                     </Typography>
                     <IconButton className={classes.cartButton} color='inherit' onClick={handleCheckOutOpen}>
                         <Badge badgeContent={1} color='secondary'>
@@ -40,8 +40,8 @@ const Navbar = () => {
             </AppBar>
 
             <CheckOutDrawer
-                isCheckOutOpen={isCheckOutOpen}
-                handleCheckOutClose={handleCheckOutClose}
+                open={isCartDrawerOpen}
+                close={handleCheckOutClose}
             />
 
             {/* Drawer for Menu Navigation*/}

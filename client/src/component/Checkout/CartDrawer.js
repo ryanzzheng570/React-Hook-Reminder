@@ -34,15 +34,15 @@ const useStyle = makeStyles((theme) => ({
 
 
 //Drawer for CheckOut Cart
-const CheckOutDrawer = (props) => {
+const CartDrawer = (props) => {
     const classes = useStyle();
-    const { isCheckOutOpen, handleCheckOutClose, checkout } = props;
+    const { open, close, checkout } = props;
 
     return (
         < Drawer
             anchor='right'
-            open={isCheckOutOpen}
-            onClose={handleCheckOutClose}
+            open={open}
+            onClose={close}
             classes={{ paper: classes.paper }}
         >
             <CssBaseline />
@@ -76,4 +76,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(CheckOutDrawer);
+export default connect(mapStateToProps)(CartDrawer);
