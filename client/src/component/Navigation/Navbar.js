@@ -8,6 +8,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import CheckOutDrawer from '../Checkout/CartDrawer';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 const drawerWidth = 250;
 const toolbarHeight = 70;
@@ -54,8 +55,9 @@ const getSushiTypeIcon = (type) => {
 }
 
 //Navigation component based on Material UI
-const Navbar = () => {
+const Navbar = (props) => {
     const classes = useStyles();
+    const { checkout } = props
     const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
     const history = useHistory();
 
@@ -78,7 +80,7 @@ const Navbar = () => {
                         Ryan's Sushi Restaurant
                     </Typography>
                     <IconButton className={classes.cartButton} onClick={handleCheckOutOpen}>
-                        <Badge badgeContent={1} color='secondary'>
+                        <Badge badgeContent={checkout.length} color='secondary'>
                             <ShoppingCartOutlinedIcon style={{ fontSize: 32 }} />
                         </Badge>
                     </IconButton>
@@ -133,4 +135,9 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+    return {
+        checkout: state.checkout
+    }
+}
+export default connect(mapStateToProps)(Navbar);

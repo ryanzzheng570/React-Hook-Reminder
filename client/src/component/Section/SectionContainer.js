@@ -5,7 +5,7 @@ import Items from './Item/Items';
 
 const useSytle = makeStyles((theme) => ({
     root: {
-        backgroundColor: 'rgb(250, 250, 250)',
+        // backgroundColor: 'rgb(250, 250, 250)',
         padding: 20,
         borderRadius: 12,
         border: '1px solid rgb(224, 224, 224)',
