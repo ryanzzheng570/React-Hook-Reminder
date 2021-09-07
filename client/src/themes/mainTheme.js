@@ -23,7 +23,7 @@ export const mainTheme = createTheme({
         },
     },
     palette: {
-        primary: { main: "#3A8DFF" },
+        primary: { main: 'rgb(255, 166, 0)' },
         secondary: { main: "#B0B0B0" }
     },
 });

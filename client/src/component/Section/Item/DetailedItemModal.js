@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import {
     Modal,
     Fade,
@@ -8,7 +8,6 @@ import {
     IconButton,
     Grid,
     Button,
-    Divider
 } from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core';
@@ -46,7 +45,6 @@ const useSytle = makeStyles((theme) => ({
     },
     btn: {
         padding: theme.spacing(1.2, 3),
-        backgroundColor: 'rgb(255,166,0)'
     }
 }));
 
@@ -55,6 +53,35 @@ const DetailedItemModal = (props) => {
     const { name, description, labels, open, handleClose, price } = props;
     const [specialRequest, setSpecialRequest] = useState('');
     const [quantity, setQuantity] = useState(1);
+
+    const handleMinusClick = () => {
+        setQuantity(quantity - 1);
+    }
+
+    const handlePlusClick = () => {
+        setQuantity(quantity + 1);
+    }
+
+    const getTotal = (price, quantity) => {
+        return Math.round(price * quantity * 100) / 100;
+    }
+
+    const memoizedTotal = useMemo(() => getTotal(price, quantity), [price, quantity])
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const amount = quantity;
+        const order = {
+            name: props.name,
+            price: memoizedTotal,
+            specialRequest: specialRequest
+        }
+        debugger;
+    }
+
+    const handleSpecialRequest = (e) => {
+        setSpecialRequest(e.target.value)
+    }
 
     return (
         <>
@@ -68,7 +95,7 @@ const DetailedItemModal = (props) => {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <Grid container>
                                 <Typography gutterBottom className={classes.name} id='spring-modal-title' variant='h4'>
                                     {name}
@@ -84,26 +111,29 @@ const DetailedItemModal = (props) => {
                                 {description}
                             </Typography>
                             <TextField
-                                label='Special Request'
+                                label='Special Requests'
                                 placeholder='Please leave down any special request(e.g. allergy)'
                                 multiline
                                 row={10}
                                 fullWidth
+                                color='secondary'
                                 value={specialRequest}
+                                onChange={handleSpecialRequest}
                             />
                             <Grid className={classes.submit} container justifyContent='space-between' alignItems='flex-end'>
                                 <Box className={classes.quantityContainer}>
-                                    <IconButton><RemoveIcon /></IconButton>
+                                    <IconButton disabled={quantity > 1 ? false : true} onClick={handleMinusClick}><RemoveIcon /></IconButton>
                                     <Typography className={classes.quantity}>{quantity}</Typography>
-                                    <IconButton><AddIcon /></IconButton>
+                                    <IconButton onClick={handlePlusClick}><AddIcon /></IconButton>
                                 </Box>
                                 <Box>
                                     <Button
+                                        type='submit'
                                         color='primary'
                                         variant='contained'
                                         className={classes.btn}
                                     >
-                                        Add to my order ${price * quantity}
+                                        Add to my order ${memoizedTotal}
                                     </Button>
                                 </Box>
                             </Grid>
