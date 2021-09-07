@@ -1,7 +1,15 @@
 # Sushi Restaurant Online Ordering/Reservation Program using React Hook
  - Added Express backend for Heroku deployment
  - Website Link: https://react-sushi-restaurant-online.herokuapp.com/
+ 
+ - Added Shopping Cart to show the current selected items
+ - Added Item modal to add items to shopping cart
 
+## Todo
+ - Check out page
+ - About page
+ - Make Reservation Page
+ - Restaurant backgournd/ Contact information page
 
 ## Available Scripts
 
