@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import {
     Drawer,
     Typography,
@@ -59,7 +59,6 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-
 //Drawer for CheckOut Cart
 const CartDrawer = (props) => {
     const classes = useStyle();
@@ -70,6 +69,16 @@ const CartDrawer = (props) => {
         close();
         history.push("/checkout");
     }
+
+    const getTotal = (checkout) => {
+        let total = 0;
+        checkout.forEach((item) => {
+            total = total + item.total
+        });
+        return total;
+    }
+
+    const memorizedSubtotal = useMemo(() => getTotal(checkout), [checkout])
 
     return (
         <Drawer
@@ -86,33 +95,33 @@ const CartDrawer = (props) => {
             </List>
             <Divider />
             <List>
-                {checkout ?
+                {checkout && checkout.length > 0 ?
                     <>
                         <CheckOutItems items={checkout} />
+                        <div className={classes.bottomPush}>
+                            <Divider />
+                            <Typography gutterBottom className={classes.subtotal} variant='h4'>
+                                Subtotal:
+                                <span className={classes.price}>${memorizedSubtotal}</span>
+                            </Typography>
+                            <Typography color='textSecondary' paragraph variant='body1'>
+                                Taxes and shipping calculated at checkout
+                            </Typography>
+                            <Button
+                                color='primary'
+                                variant='contained'
+                                className={classes.btn}
+                                onClick={handleConfirmCart}
+                            >
+                                Confirm Cart
+                            </Button>
+                        </div>
                     </>
                     : (<ListItem className={classes.middlePush}>
                         <ListItemText disableTypography className={classes.emptyCart}> Your cart is currently empty. </ListItemText>
                     </ListItem>)
                 }
             </List>
-            <div className={classes.bottomPush}>
-                <Divider />
-                <Typography gutterBottom className={classes.subtotal} variant='h4'>
-                    Subtotal:
-                    <span className={classes.price}>$88.88</span>
-                </Typography>
-                <Typography color='textSecondary' paragraph variant='body1'>
-                    Taxes and shipping calculated at checkout
-                </Typography>
-                <Button
-                    color='primary'
-                    variant='contained'
-                    className={classes.btn}
-                    onClick={handleConfirmCart}
-                >
-                    Confirm Cart
-                </Button>
-            </div>
         </Drawer >
     )
 }

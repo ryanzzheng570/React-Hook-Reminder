@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import Items from './Items';
+import Items from './Item/Items';
 
 const useSytle = makeStyles((theme) => ({
     root: {
