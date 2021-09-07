@@ -1,9 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import availableSushi from './availableSushi';
 import thunkMiddleware from 'redux-thunk';
+import checkout from './checkout'
 
 const appReducer = combineReducers({
-    availableSushi
+    availableSushi,
+    checkout
 });
 
 const rootReducer = (state, action) => {

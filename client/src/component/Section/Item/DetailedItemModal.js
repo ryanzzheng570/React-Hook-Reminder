@@ -13,6 +13,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core';
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
+import { connect } from 'react-redux';
+import { addSushiToCart } from '../../../store/utils/thunkCreators';
 
 const useSytle = makeStyles((theme) => ({
     modal: {
@@ -50,7 +52,7 @@ const useSytle = makeStyles((theme) => ({
 
 const DetailedItemModal = (props) => {
     const classes = useSytle();
-    const { name, description, labels, open, handleClose, price } = props;
+    const { name, description, labels, open, handleClose, price, addSushiToCart } = props;
     const [specialRequest, setSpecialRequest] = useState('');
     const [quantity, setQuantity] = useState(1);
 
@@ -70,13 +72,17 @@ const DetailedItemModal = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const amount = quantity;
         const order = {
             name: props.name,
-            price: memoizedTotal,
-            specialRequest: specialRequest
+            quantity: quantity,
+            specialRequest: specialRequest,
+            total: memoizedTotal
         }
-        debugger;
+
+        handleClose();
+        addSushiToCart(order);
+        setSpecialRequest('');
+        setQuantity(1);
     }
 
     const handleSpecialRequest = (e) => {
@@ -145,5 +151,13 @@ const DetailedItemModal = (props) => {
     )
 }
 
-export default DetailedItemModal
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addSushiToCart: (order) => {
+            dispatch(addSushiToCart(order));
+        }
+    };
+};
+
+export default connect(null, mapDispatchToProps)(DetailedItemModal);
 

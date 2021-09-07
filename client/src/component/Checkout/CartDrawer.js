@@ -86,7 +86,7 @@ const CartDrawer = (props) => {
             </List>
             <Divider />
             <List>
-                {checkout ?
+                {checkout && checkout.length > 0 ?
                     <>
                         <CheckOutItems items={checkout} />
                     </>
