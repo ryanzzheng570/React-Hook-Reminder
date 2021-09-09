@@ -1,7 +1,11 @@
 import axios from "axios"
 import { setAvailableSushi } from "../availableSushi";
-import { checkoutAddSushi } from "../checkout";
-import { checkoutModifySushi } from "../checkout";
+import {
+    checkoutAddSushi,
+    checkoutModifySushi,
+    checkoutRemoveSushi
+} from "../checkout";
+
 
 export const fetchSushi = () => async (dispatch) => {
     const { data } = await axios.get(`api/sushi`);
@@ -15,4 +19,8 @@ export const addSushiToCart = (order) => (dispatch) => {
 
 export const modifyCartSushi = (checkoutItemId, quantity) => (dispatch) => {
     dispatch(checkoutModifySushi(checkoutItemId, quantity))
+}
+
+export const removeSushiFromCart = (checkoutItemId) => (dispatch) => {
+    dispatch(checkoutRemoveSushi(checkoutItemId));
 }

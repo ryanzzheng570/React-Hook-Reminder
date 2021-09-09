@@ -4,13 +4,14 @@ import {
     ListItemText,
     Typography,
     IconButton,
-    Box
+    Box,
+    Button
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import { connect } from 'react-redux';
-import { modifyCartSushi } from '../../store/utils/thunkCreators'
+import { modifyCartSushi, removeSushiFromCart } from '../../store/utils/thunkCreators'
 
 const useStyles = makeStyles((theme) => ({
     text: {
@@ -30,12 +31,16 @@ const useStyles = makeStyles((theme) => ({
     },
     icon: {
         fontSize: 15
+    },
+    remove: {
+        marginLeft: theme.spacing(0.8),
+        marginBottom: theme.spacing(0.3)
     }
 }));
 
 const CheckOutItems = (props) => {
     const classes = useStyles();
-    const { modifyCartSushi, items } = props
+    const { modifyCartSushi, removeSushiFromCart, items } = props
 
     const handleMinusClick = (checkoutItemId, currQuantity) => {
         modifyCartSushi(checkoutItemId, currQuantity - 1);
@@ -43,6 +48,10 @@ const CheckOutItems = (props) => {
 
     const handlePlusClick = (checkoutItemId, currQuantity) => {
         modifyCartSushi(checkoutItemId, currQuantity + 1);
+    }
+
+    const handleRemove = (checkoutItemId) => {
+        removeSushiFromCart(checkoutItemId);
     }
 
     return (
@@ -69,6 +78,7 @@ const CheckOutItems = (props) => {
                             <span className={classes.total}> ${item.totalPrice}</span>
                         </Typography>
                     </ListItemText>
+                    <Button onClick={() => handleRemove(item.checkoutItemId)} color='secondary' className={classes.remove} size='small'>Remove</Button>
                 </ListItem>
             ))}
         </>
@@ -79,6 +89,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         modifyCartSushi: (checkoutItemId, quantity) => {
             dispatch(modifyCartSushi(checkoutItemId, quantity));
+        },
+        removeSushiFromCart: (checkoutItemId) => {
+            dispatch(removeSushiFromCart(checkoutItemId));
         }
     };
 };
