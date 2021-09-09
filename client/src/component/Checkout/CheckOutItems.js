@@ -5,7 +5,8 @@ import {
     Typography,
     IconButton,
     Box,
-    Button
+    Button,
+    Badge
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import RemoveIcon from '@material-ui/icons/Remove';
@@ -72,9 +73,12 @@ const CheckOutItems = (props) => {
                             <AddIcon className={classes.icon} />
                         </IconButton>
                     </Box>
+
                     <ListItemText className={classes.text}>
                         <Typography>
-                            {item.name}
+                            <Badge color='secondary' badgeContent={item.specialRequest ? "R" : null}>
+                                {item.name}
+                            </Badge>
                             <span className={classes.total}> ${item.totalPrice}</span>
                         </Typography>
                     </ListItemText>
