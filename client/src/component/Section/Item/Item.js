@@ -45,7 +45,7 @@ const useSytle = makeStyles((theme) => ({
 const Item = (props) => {
     const classes = useSytle();
     const [isOpen, setIsOpen] = useState(false);
-    const { name, description, labels, price, imageUrl } = props;
+    const { name, description, labels, price } = props;
 
     const handleOpen = () => {
         setIsOpen(true)

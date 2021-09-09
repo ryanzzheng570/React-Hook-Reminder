@@ -73,7 +73,7 @@ const CartDrawer = (props) => {
     const getTotal = (checkout) => {
         let total = 0;
         checkout.forEach((item) => {
-            total = total + item.total
+            total = total + item.totalPrice
         });
         return total;
     }
@@ -97,7 +97,9 @@ const CartDrawer = (props) => {
             <List>
                 {checkout && checkout.length > 0 ?
                     <>
-                        <CheckOutItems items={checkout} />
+                        <CheckOutItems
+                            items={checkout}
+                        />
                         <div className={classes.bottomPush}>
                             <Divider />
                             <Typography gutterBottom className={classes.subtotal} variant='h4'>
