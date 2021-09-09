@@ -52,7 +52,17 @@ const useSytle = makeStyles((theme) => ({
 
 const DetailedItemModal = (props) => {
     const classes = useSytle();
-    const { name, description, labels, open, handleClose, price, addSushiToCart } = props;
+    const {
+        name,
+        description,
+        labels,
+        open,
+        handleClose,
+        price,
+        addSushiToCart,
+        checkout
+    } = props;
+
     const [specialRequest, setSpecialRequest] = useState('');
     const [quantity, setQuantity] = useState(1);
 
@@ -73,10 +83,12 @@ const DetailedItemModal = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const order = {
+            checkoutItemId: checkout.length + 1,
             name: props.name,
             quantity: quantity,
             specialRequest: specialRequest,
-            total: memoizedTotal
+            singlePrice: price,
+            totalPrice: memoizedTotal
         }
 
         handleClose();
@@ -151,6 +163,12 @@ const DetailedItemModal = (props) => {
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        checkout: state.checkout
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         addSushiToCart: (order) => {
@@ -159,5 +177,5 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(DetailedItemModal);
+export default connect(mapStateToProps, mapDispatchToProps)(DetailedItemModal);
 

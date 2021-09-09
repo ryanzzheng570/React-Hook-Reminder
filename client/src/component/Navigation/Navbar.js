@@ -57,7 +57,7 @@ const getSushiTypeIcon = (type) => {
 //Navigation component based on Material UI
 const Navbar = (props) => {
     const classes = useStyles();
-    const { checkout } = props
+    const { checkout } = props;
     const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
     const history = useHistory();
 
