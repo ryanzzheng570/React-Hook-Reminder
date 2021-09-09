@@ -1,7 +1,11 @@
-import { modifyCheckoutSushi } from "./utils/reducerFunctions";
+import {
+    modifyCheckoutSushi,
+    removeCheckoutSushi
+} from "./utils/reducerFunctions";
 
 const CHECKOUT_ADD_SUSHI = "CHECKOUT_ADD_SUSHI";
 const CHECKOUT_MODIFY_SUSHI = "CHECKOUT_MODIFY_SUSHI";
+const CHECKOUT_REMOVE_SUSHI = "CHEKCOUT_REMOVE_SUSHI";
 
 export const checkoutAddSushi = (sushi) => {
     return {
@@ -20,6 +24,15 @@ export const checkoutModifySushi = (checkoutItemId, quantity) => {
     }
 }
 
+export const checkoutRemoveSushi = (checkoutItemId) => {
+    return {
+        type: CHECKOUT_REMOVE_SUSHI,
+        payload: {
+            checkoutItemId
+        }
+    }
+}
+
 const reducer = (state = [], action) => {
     switch (action.type) {
         case CHECKOUT_ADD_SUSHI: {
@@ -30,10 +43,14 @@ const reducer = (state = [], action) => {
                 state,
                 action.payload.checkoutItemId,
                 action.payload.quantity
-            )
+            );
         }
-        default:
+        case CHECKOUT_REMOVE_SUSHI: {
+            return removeCheckoutSushi(state);
+        }
+        default: {
             return state;
+        }
 
     }
 }

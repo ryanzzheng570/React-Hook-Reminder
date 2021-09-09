@@ -7,3 +7,8 @@ export const modifyCheckoutSushi = (state, checkoutItemId, quantity) => {
     stateCopy[sushiIndex].totalPrice = calcPriceTotal(stateCopy[sushiIndex].singlePrice, quantity)
     return stateCopy;
 }
+
+export const removeCheckoutSushi = (state, checkoutItemId) => {
+    let stateCopy = [...state];
+    return stateCopy.filter((sushi) => sushi.checkoutItemId === checkoutItemId);
+}
