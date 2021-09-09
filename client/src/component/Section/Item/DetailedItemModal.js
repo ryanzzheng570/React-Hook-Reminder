@@ -15,7 +15,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import { connect } from 'react-redux';
 import { addSushiToCart } from '../../../store/utils/thunkCreators';
-
+import { calcPriceTotal } from '../../../util/utils';
 const useSytle = makeStyles((theme) => ({
     modal: {
         display: 'flex',
@@ -75,7 +75,7 @@ const DetailedItemModal = (props) => {
     }
 
     const getTotal = (price, quantity) => {
-        return Math.round(price * quantity * 100) / 100;
+        return calcPriceTotal(price, quantity);
     }
 
     const memoizedTotal = useMemo(() => getTotal(price, quantity), [price, quantity])

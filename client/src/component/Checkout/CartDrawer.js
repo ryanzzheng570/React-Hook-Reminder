@@ -97,7 +97,9 @@ const CartDrawer = (props) => {
             <List>
                 {checkout && checkout.length > 0 ?
                     <>
-                        <CheckOutItems items={checkout} />
+                        <CheckOutItems
+                            items={checkout}
+                        />
                         <div className={classes.bottomPush}>
                             <Divider />
                             <Typography gutterBottom className={classes.subtotal} variant='h4'>

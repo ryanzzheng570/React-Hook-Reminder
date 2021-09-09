@@ -48,7 +48,7 @@ const CheckOutItems = (props) => {
     return (
         <>
             {items.map((item, index) => (
-                <ListItem key={index}>
+                <ListItem button disableRipple key={index}>
                     <Box className={classes.quantityContainer}>
                         <IconButton
                             onClick={() => handleMinusClick(item.checkoutItemId, item.quantity)}
@@ -66,7 +66,6 @@ const CheckOutItems = (props) => {
                     <ListItemText className={classes.text}>
                         <Typography>
                             {item.name}
-                            <span> * {item.quantity}</span>
                             <span className={classes.total}> ${item.totalPrice}</span>
                         </Typography>
                     </ListItemText>
