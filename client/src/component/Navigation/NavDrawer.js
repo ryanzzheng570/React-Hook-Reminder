@@ -17,6 +17,7 @@ import { useHistory, useLocation } from 'react-router';
 const drawerWidth = 250;
 const toolbarHeight = 70;
 const iconLeftPadding = 11;
+const iconBottomPadding = 1;
 
 const useStyles = makeStyles((theme) => ({
     navDrawer: {
@@ -29,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     },
     icon: {
         paddingLeft: iconLeftPadding,
+    },
+    sushi_type_icon: {
+        paddingLeft: iconLeftPadding,
+        paddingBottom: iconBottomPadding
     },
 }));
 
