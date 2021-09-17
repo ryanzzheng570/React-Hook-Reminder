@@ -31,7 +31,7 @@ app.get('/api/sushi', cors(), (req, res) => {
             "labels": null,
             "isAvail": true,
             "price": 7.99,
-            "imageUrl": null
+            "imageUrl": 'https://res.cloudinary.com/demoryanzzheng/image/upload/v1631907050/MRHR_84-650x650_gejupa.jpg'
         },
         {
             "id": 2,
@@ -40,7 +40,7 @@ app.get('/api/sushi', cors(), (req, res) => {
             "labels": null,
             "isAvail": true,
             "price": 8.99,
-            "imageUrl": null
+            "imageUrl": 'https://res.cloudinary.com/demoryanzzheng/image/upload/v1631906686/Spicy-Tuna-Rolls-8963_h2gdbc.jpg'
         },
         {
             "id": 3,
@@ -49,16 +49,16 @@ app.get('/api/sushi', cors(), (req, res) => {
             "labels": null,
             "isAvail": true,
             "price": 7.99,
-            "imageUrl": null
+            "imageUrl": 'https://res.cloudinary.com/demoryanzzheng/image/upload/v1631908363/47-471414_spicy-tuna-roll-jasmine-rice_z7q9rs.jpg'
         },
         {
             "id": 4,
-            "name": "Spicy Butterfish Roll",
-            "description": "Spicy salmon roll is a type of maki (sushi roll) made from raw butterfish, spicy sauce (Japanese-style mayonnaise mixed with chili sauce), green onion and masago(fish egg)",
+            "name": "California Roll",
+            "description": "Containing cucumber, masago(fish egg), crab or imitation crab, and avocado.",
             "labels": null,
             "isAvail": true,
             "price": 7.99,
-            "imageUrl": null
+            "imageUrl": 'https://res.cloudinary.com/demoryanzzheng/image/upload/v1631906686/Cali_y1x2ba.jpg'
         }
     ];
 
