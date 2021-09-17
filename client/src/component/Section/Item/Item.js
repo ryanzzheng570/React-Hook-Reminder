@@ -29,7 +29,10 @@ const useSytle = makeStyles((theme) => ({
         padding: 0
     },
     img: {
-        backgroundColor: 'rgba(96, 96, 96, 0.2)'
+        height: 200,
+        width: '100%',
+        objectFit: 'cover',
+
     },
     description: {
         height: 50,
@@ -39,13 +42,17 @@ const useSytle = makeStyles((theme) => ({
         WebkitBoxOrient: 'vertical',
         display: '-webkit-box',
         width: 300
+    },
+    imageContainer: {
+        height: 202,
+        width: '30%'
     }
 }));
 
 const Item = (props) => {
     const classes = useSytle();
     const [isOpen, setIsOpen] = useState(false);
-    const { name, description, labels, price } = props;
+    const { name, description, labels, price, imageUrl } = props;
 
     const handleOpen = () => {
         setIsOpen(true)
@@ -74,8 +81,8 @@ const Item = (props) => {
                         ) : <></>}
                         <Typography>{price}</Typography>
                     </Grid>
-                    <Box width={'30%'} style={{ backgroundColor: 'lightgrey' }}>
-                        <img className={classes.img} alt='' />
+                    <Box className={classes.imageContainer}>
+                        <img className={classes.img} src={imageUrl} alt='' height='195px' />
                     </Box>
                 </Grid>
             </Button>
