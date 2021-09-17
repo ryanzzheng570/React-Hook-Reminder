@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const CheckOutItems = (props) => {
+const DrawerItems = (props) => {
     const classes = useStyles();
     const { modifyCartSushi, removeSushiFromCart, items } = props
 
@@ -100,4 +100,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(CheckOutItems);
+export default connect(null, mapDispatchToProps)(DrawerItems);
