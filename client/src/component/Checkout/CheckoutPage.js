@@ -13,7 +13,8 @@ import {
     Button,
     FormControl,
     Grid,
-    InputLabel
+    InputLabel,
+    DatePicker
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -23,7 +24,7 @@ const DELIVERY = "Delivery";
 const CheckoutPage = (props) => {
     const classes = checkOutStyle();
     const { checkout } = props
-    const [expanded, setExpanded] = useState('orders');
+    const [expanded, setExpanded] = useState('delivery');
     const [deliveryMethod, setDeliveryMethod] = useState('');
 
     const handleExpand = (accordion) => (e, isExpanded) => {
@@ -39,17 +40,6 @@ const CheckoutPage = (props) => {
             {/* <FormControl className={classes.form}> */}
             <Grid container justifyContent='center'>
                 <Grid item xs={8}>
-                    <Accordion className={classes.marginTop} expanded={expanded === 'orders'} onChange={handleExpand('orders')}>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                        >
-                            <Typography variant='h4'>Your Order Summary</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <PageItems items={checkout} />
-                        </AccordionDetails>
-                        <Button color='primary' variant='contained' className={classes.confirmBtn}>Confirm My Orders</Button>
-                    </Accordion>
                     <Accordion expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -80,7 +70,16 @@ const CheckoutPage = (props) => {
                                     </Grid>
                                 </Grid>
 
-                                {deliveryMethod === PICK_UP && <Grid item><Typography component='h3' variant='body1'>*Pick Up Address: Ryan Home Street, Toronto, ON</Typography></Grid>}
+                                {deliveryMethod === PICK_UP && (
+                                    <>
+                                        <Grid item>
+                                            <Typography component='h3' variant='body1'>*Pick Up Address: Ryan Home Street, Toronto, ON</Typography>
+                                        </Grid>
+                                        <Grid>
+
+                                        </Grid>
+                                    </>
+                                )}
 
                                 <Grid item>
                                     <Button color='primary' variant='contained' className={classes.confirmBtn}>Continue</Button>
@@ -88,6 +87,17 @@ const CheckoutPage = (props) => {
                             </Grid>
 
                         </AccordionDetails>
+                    </Accordion>
+                    <Accordion disabled className={classes.marginTop} expanded={expanded === 'orders'} onChange={handleExpand('orders')}>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                        >
+                            <Typography variant='h4'>Your Order Summary</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <PageItems items={checkout} />
+                        </AccordionDetails>
+                        <Button color='primary' variant='contained' className={classes.confirmBtn}>Confirm My Orders</Button>
                     </Accordion>
                 </Grid>
                 {/* <Grid item xs={2}></Grid> */}
