@@ -12,11 +12,11 @@ const CheckoutPage = (props) => {
     return (
         <div className={classes.container}>
             <Grid container spacing={3} justifyContent='center'>
-                <Grid item xs={10}>
-                    <Paper>
-                        <Typography variant='h4'>Sushi:</Typography>
-                        <PageItems items={checkout} />
-                    </Paper>
+                <Grid item xs={8}>
+                    {/* <Paper> */}
+                    <Typography variant='h4'>Your Orders:</Typography>
+                    <PageItems items={checkout} />
+                    {/* </Paper> */}
                 </Grid>
             </Grid>
 

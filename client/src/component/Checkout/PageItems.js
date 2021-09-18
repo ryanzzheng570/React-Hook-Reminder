@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
         // margin: 'auto',
-        maxWidth: 1000,
+        maxWidth: 1300,
     },
     image: {
         width: 128,
@@ -48,12 +48,13 @@ const PageItems = (props) => {
                                     <Grid item xs container direction="column" spacing={2}>
                                         <Grid item xs>
                                             <Typography gutterBottom variant="subtitle1">
-                                                {item.name}
+                                                {item.name} * {item.quantity}
                                             </Typography>
                                             <Typography variant="body2" gutterBottom>
                                                 {item.description}
                                             </Typography>
                                             <Typography variant="body2" color="textSecondary">
+                                                Special Request: {item.specialRequest ? item.specialRequest : 'N/A'}
                                             </Typography>
                                         </Grid>
                                         <Grid item>
@@ -62,8 +63,11 @@ const PageItems = (props) => {
                                             </Typography>
                                         </Grid>
                                     </Grid>
+                                    <Grid xs={2} item>
+                                        <Typography variant="subtitle1">Price: ${item.singlePrice}</Typography>
+                                    </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle1">$19.00</Typography>
+                                        <Typography variant="subtitle1">Total Price: ${item.singlePrice}</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
