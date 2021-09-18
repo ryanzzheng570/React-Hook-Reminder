@@ -10,12 +10,12 @@ import DetailedItemModal from './DetailedItemModal';
 
 const useSytle = makeStyles((theme) => ({
     root: {
-        minWidth: 500,
+        width: 548,
         maxHeight: 200,
         margin: theme.spacing(2, 2, 1, 0),
     },
     info: {
-        maxWidth: '70%',
+        maxWidth: 380,
         minWidth: 0,
         padding: 20,
         '& p': {
@@ -45,7 +45,7 @@ const useSytle = makeStyles((theme) => ({
     },
     imageContainer: {
         height: 202,
-        width: '30%'
+        width: 165
     }
 }));
 
