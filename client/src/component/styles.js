@@ -12,12 +12,27 @@ export const rootStyle = makeStyles((theme) => ({
 
 export const checkOutStyle = makeStyles((theme) => ({
     container: {
-        margin: theme.spacing(3, 20, 0, 20),
+        marginTop: theme.spacing(7),
         backgroundColor: 'white',
+        position: 'fixed',
+        width: '100%',
+        height: '100%',
+        top: 0,
+        left: 0,
     },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
+    marginTop: {
+        marginTop: theme.spacing(4)
+    },
+    confirmBtn: {
+        marginRight: theme.spacing(5),
+        float: 'right',
+        padding: theme.spacing(1, 4),
+        marginBottom: theme.spacing(2),
+    },
+    form: {
+        display: 'flex'
+    },
+    select: {
+        width: 300
     }
 }));

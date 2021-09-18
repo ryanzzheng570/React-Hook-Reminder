@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
         // margin: 'auto',
-        maxWidth: 1300,
+        maxWidth: '100%',
     },
     image: {
         width: 128,
@@ -36,7 +36,7 @@ const PageItems = (props) => {
         <div className={classes.root}>
             {items.length > 0 ? items.map((item) => {
                 return (
-                    <div key={item.id}>
+                    <div key={item.checkoutItemId}>
                         <Paper className={classes.paper}>
                             <Grid container spacing={2}>
                                 <Grid item>
