@@ -2,9 +2,12 @@ import { Paper, Typography } from '@material-ui/core'
 import React from 'react'
 import { Grid } from '@material-ui/core';
 import { checkOutStyle } from '../styles';
+import PageItems from './PageItems';
+import { connect } from 'react-redux'
 
-const CheckoutPage = () => {
+const CheckoutPage = (props) => {
     const classes = checkOutStyle();
+    const { checkout } = props
 
     return (
         <div className={classes.container}>
@@ -12,6 +15,7 @@ const CheckoutPage = () => {
                 <Grid item xs={10}>
                     <Paper>
                         <Typography variant='h4'>Sushi:</Typography>
+                        <PageItems items={checkout} />
                     </Paper>
                 </Grid>
             </Grid>
@@ -20,4 +24,10 @@ const CheckoutPage = () => {
     )
 }
 
-export default CheckoutPage
+const mapStateToProps = (state) => {
+    return {
+        checkout: state.checkout
+    }
+}
+
+export default connect(mapStateToProps)(CheckoutPage);

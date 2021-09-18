@@ -60,7 +60,8 @@ const DetailedItemModal = (props) => {
         handleClose,
         price,
         addSushiToCart,
-        checkout
+        checkout,
+        image
     } = props;
 
     const [specialRequest, setSpecialRequest] = useState('');
@@ -88,7 +89,9 @@ const DetailedItemModal = (props) => {
             quantity: quantity,
             specialRequest: specialRequest,
             singlePrice: price,
-            totalPrice: memoizedTotal
+            totalPrice: memoizedTotal,
+            description: description,
+            imageUrl: image
         }
 
         handleClose();
