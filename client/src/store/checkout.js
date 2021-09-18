@@ -46,7 +46,7 @@ const reducer = (state = [], action) => {
             );
         }
         case CHECKOUT_REMOVE_SUSHI: {
-            return removeCheckoutSushi(state);
+            return removeCheckoutSushi(state, action.payload.checkoutItemId);
         }
         default: {
             return state;

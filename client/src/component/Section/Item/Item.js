@@ -92,6 +92,7 @@ const Item = (props) => {
                 name={name}
                 description={description}
                 price={price}
+                image={imageUrl}
             />
         </>
     )

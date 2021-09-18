@@ -9,7 +9,7 @@ import {
     ListItemText,
     Button
 } from '@material-ui/core'
-import CheckOutItems from './CheckOutItems';
+import DrawerItems from './DrawerItems';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { useHistory } from "react-router-dom";
@@ -97,7 +97,7 @@ const CartDrawer = (props) => {
             <List>
                 {checkout && checkout.length > 0 ?
                     <>
-                        <CheckOutItems
+                        <DrawerItems
                             items={checkout}
                         />
                         <div className={classes.bottomPush}>

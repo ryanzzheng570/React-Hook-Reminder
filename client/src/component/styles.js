@@ -9,3 +9,30 @@ export const rootStyle = makeStyles((theme) => ({
         backgroundColor: 'white'
     }
 }));
+
+export const checkOutStyle = makeStyles((theme) => ({
+    container: {
+        marginTop: theme.spacing(7),
+        backgroundColor: 'white',
+        position: 'fixed',
+        width: '100%',
+        height: '100%',
+        top: 0,
+        left: 0,
+    },
+    marginTop: {
+        marginTop: theme.spacing(4)
+    },
+    confirmBtn: {
+        marginRight: theme.spacing(5),
+        float: 'right',
+        padding: theme.spacing(1, 4),
+        marginBottom: theme.spacing(2),
+    },
+    form: {
+        display: 'flex'
+    },
+    select: {
+        width: 300
+    }
+}));

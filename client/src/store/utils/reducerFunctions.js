@@ -10,5 +10,5 @@ export const modifyCheckoutSushi = (state, checkoutItemId, quantity) => {
 
 export const removeCheckoutSushi = (state, checkoutItemId) => {
     let stateCopy = [...state];
-    return stateCopy.filter((sushi) => sushi.checkoutItemId === checkoutItemId);
+    return stateCopy.filter((sushi) => sushi.checkoutItemId !== checkoutItemId);
 }
