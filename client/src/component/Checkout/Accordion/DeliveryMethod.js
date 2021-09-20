@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { TextField } from '@mui/material';
 import Continue from '../Button/Continue';
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
     confirmBtn: {
@@ -40,7 +41,7 @@ const DeliveryMethod = (props) => {
         handleExpand,
     } = props;
 
-    const [pickupTime, setPickupTime] = useState(new Date());
+    const [pickupTime, setPickupTime] = useState(moment().format("YYYY-MM-DDTkk:mm"));
     const [deliveryMethod, setDeliveryMethod] = useState('');
 
 
@@ -97,6 +98,7 @@ const DeliveryMethod = (props) => {
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
+                                    value={pickupTime}
                                     onChange={handlePickupTimeSelect}
                                 />
                                 <Typography className={classes.marginLeft} component='h3' variant='body1'>*Pick Up Address: Ryan Home Street, Toronto, ON</Typography>
