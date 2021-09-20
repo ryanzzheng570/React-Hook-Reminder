@@ -7,20 +7,12 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
-    Box,
-    Select,
-    MenuItem,
     Button,
-    FormControl,
     Grid,
-    InputLabel,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { TextField } from '@mui/material';
-import Continue from './Button/Continue';
+import Delivery from './Accordion/Delivery';
 
-const PICK_UP = "PickUp";
-const DELIVERY = "Delivery";
 
 const CheckoutPage = (props) => {
     const classes = checkOutStyle();
@@ -41,7 +33,14 @@ const CheckoutPage = (props) => {
         <div className={classes.container}>
             <Grid container justifyContent='center'>
                 <Grid item xs={8}>
-                    <Accordion className={classes.marginTop} expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
+                    <Delivery
+                        expanded={expanded}
+                        handleMethodSelect={handleDeliverySelect}
+                        deliveryMethod={deliveryMethod}
+                        pickupTime={pickupTime}
+                        handleExpand={handleExpand}
+                    />
+                    {/* <Accordion className={classes.marginTop} expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                         >
@@ -92,7 +91,7 @@ const CheckoutPage = (props) => {
                             </Grid>
 
                         </AccordionDetails>
-                    </Accordion>
+                    </Accordion> */}
                     <Accordion disabled className={classes.marginTop} expanded={expanded === 'orders'} onChange={handleExpand('orders')}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
