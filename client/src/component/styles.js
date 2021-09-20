@@ -32,7 +32,7 @@ export const checkOutStyle = makeStyles((theme) => ({
     form: {
         display: 'flex'
     },
-    select: {
-        width: 300
+    marginLeft: {
+        marginLeft: theme.spacing(3)
     }
 }));
