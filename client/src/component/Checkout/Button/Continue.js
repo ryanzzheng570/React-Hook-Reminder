@@ -13,9 +13,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Continue = (props) => {
     const classes = useStyles();
-    const { onClick } = props;
+    const { onClick, type } = props;
     return (
-        <Button color='primary' variant='contained' className={classes.confirmBtn}>Continue</Button>
+        <Button
+            type={type}
+            color='primary'
+            variant='contained'
+            className={classes.confirmBtn}
+        >Continue
+        </Button>
     )
 }
 
