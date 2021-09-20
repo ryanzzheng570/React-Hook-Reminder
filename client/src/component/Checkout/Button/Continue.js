@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const ContinueButton = (props) => {
+const Continue = (props) => {
     const classes = useStyles();
     const { onClick } = props;
     return (
@@ -19,4 +19,4 @@ const ContinueButton = (props) => {
     )
 }
 
-export default ContinueButton
+export default Continue;

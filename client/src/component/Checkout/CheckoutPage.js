@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { TextField } from '@mui/material';
-import ContinueButton from './Button/ContinueButton';
+import Continue from './Button/Continue';
 
 const PICK_UP = "PickUp";
 const DELIVERY = "Delivery";
@@ -87,7 +87,7 @@ const CheckoutPage = (props) => {
                                 )}
 
                                 <Grid item>
-                                    <ContinueButton />
+                                    <Continue />
                                 </Grid>
                             </Grid>
 
