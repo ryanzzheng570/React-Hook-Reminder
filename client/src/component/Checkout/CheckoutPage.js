@@ -14,9 +14,10 @@ import {
     FormControl,
     Grid,
     InputLabel,
-    DatePicker
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { TextField } from '@mui/material';
+import ContinueButton from './Button/ContinueButton';
 
 const PICK_UP = "PickUp";
 const DELIVERY = "Delivery";
@@ -26,6 +27,7 @@ const CheckoutPage = (props) => {
     const { checkout } = props
     const [expanded, setExpanded] = useState('delivery');
     const [deliveryMethod, setDeliveryMethod] = useState('');
+    const [pickupTime, setPickupTime] = useState(new Date());
 
     const handleExpand = (accordion) => (e, isExpanded) => {
         setExpanded(isExpanded ? accordion : false);
@@ -37,10 +39,9 @@ const CheckoutPage = (props) => {
 
     return (
         <div className={classes.container}>
-            {/* <FormControl className={classes.form}> */}
             <Grid container justifyContent='center'>
                 <Grid item xs={8}>
-                    <Accordion expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
+                    <Accordion className={classes.marginTop} expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                         >
@@ -71,18 +72,22 @@ const CheckoutPage = (props) => {
                                 </Grid>
 
                                 {deliveryMethod === PICK_UP && (
-                                    <>
-                                        <Grid item>
-                                            <Typography component='h3' variant='body1'>*Pick Up Address: Ryan Home Street, Toronto, ON</Typography>
-                                        </Grid>
-                                        <Grid>
-
-                                        </Grid>
-                                    </>
+                                    <Grid item container>
+                                        <TextField
+                                            id='pickuptime'
+                                            label='Choose a pickup time'
+                                            type='datetime-local'
+                                            defaultvalue={pickupTime}
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                        />
+                                        <Typography className={classes.marginLeft} component='h3' variant='body1'>*Pick Up Address: Ryan Home Street, Toronto, ON</Typography>
+                                    </Grid>
                                 )}
 
                                 <Grid item>
-                                    <Button color='primary' variant='contained' className={classes.confirmBtn}>Continue</Button>
+                                    <ContinueButton />
                                 </Grid>
                             </Grid>
 
@@ -100,9 +105,7 @@ const CheckoutPage = (props) => {
                         <Button color='primary' variant='contained' className={classes.confirmBtn}>Confirm My Orders</Button>
                     </Accordion>
                 </Grid>
-                {/* <Grid item xs={2}></Grid> */}
             </Grid>
-            {/* </FormControl> */}
         </div>
     )
 }

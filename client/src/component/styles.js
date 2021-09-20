@@ -34,5 +34,8 @@ export const checkOutStyle = makeStyles((theme) => ({
     },
     select: {
         width: 300
+    },
+    marginLeft: {
+        marginLeft: theme.spacing(3)
     }
 }));
