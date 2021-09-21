@@ -7,5 +7,5 @@ export const getTotalPrice = (items) => {
     items.forEach((item) => {
         total = total + item.totalPrice
     });
-    return total;
+    return total.toFixed(2);
 }

@@ -91,9 +91,7 @@ const CartDrawer = (props) => {
             <List>
                 {items && items.length > 0 ?
                     <>
-                        <DrawerItems
-                            items={items}
-                        />
+                        <DrawerItems />
                         <div className={classes.bottomPush}>
                             <Divider />
                             <Typography gutterBottom className={classes.subtotal} variant='h4'>
