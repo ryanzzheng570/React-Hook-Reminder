@@ -33,8 +33,11 @@ const useStyles = makeStyles((theme) => ({
     },
     marginLeft: {
         marginLeft: theme.spacing(3)
-    }
-}))
+    },
+    marginTop: {
+        marginTop: theme.spacing(4)
+    },
+}));
 
 const DeliveryMethod = (props) => {
     const classes = useStyles();

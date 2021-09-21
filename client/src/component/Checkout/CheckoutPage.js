@@ -14,6 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeliveryMethod from './Accordion/DeliveryMethod';
 import ContactInformation from './Accordion/ContactInformation';
 import Payment from './Accordion/Payment';
+import Summary from './Accordion/Summary';
 
 
 const CheckoutPage = (props) => {
@@ -50,17 +51,11 @@ const CheckoutPage = (props) => {
                         handleExpand={handleExpand}
                         nextStep={handleContinue}
                     />
-                    <Accordion disabled className={classes.marginTop} expanded={expanded === 'orders'} onChange={handleExpand('orders')}>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                        >
-                            <Typography variant='h4'>Your Order Summary</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <PageItems items={checkout} />
-                        </AccordionDetails>
-                        <Button color='primary' variant='contained' className={classes.confirmBtn}>Confirm My Orders</Button>
-                    </Accordion>
+                    <Summary
+                        expanded={expanded}
+                        handleExpand={handleExpand}
+
+                    />
                 </Grid>
             </Grid>
         </div>
