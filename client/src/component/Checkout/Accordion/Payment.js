@@ -4,7 +4,6 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
-    Button,
     Grid,
 } from '@material-ui/core';
 import { ACCORDION_PAYMENT, ACCORDION_SUMMARY } from '../../../util/constants';

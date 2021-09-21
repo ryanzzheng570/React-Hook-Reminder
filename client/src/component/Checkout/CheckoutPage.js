@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { checkOutStyle } from '../styles';
-import PageItems from './PageItems';
-import { connect } from 'react-redux';
 import {
     Grid,
 } from '@material-ui/core';
@@ -11,14 +9,12 @@ import Payment from './Accordion/Payment';
 import Summary from './Accordion/Summary';
 
 
-const CheckoutPage = (props) => {
+const CheckoutPage = () => {
     const classes = checkOutStyle();
-    const { checkout } = props
     const [expanded, setExpanded] = useState('delivery');
 
 
     const handleExpand = (accordion) => (e, isExpanded) => {
-        console.log(accordion)
         setExpanded(isExpanded ? accordion : false);
     }
 
@@ -29,7 +25,7 @@ const CheckoutPage = (props) => {
     return (
         <div className={classes.container}>
             <Grid container justifyContent='center'>
-                <Grid item xs={8}>
+                <Grid item>
                     <DeliveryMethod
                         expanded={expanded}
                         handleExpand={handleExpand}
@@ -56,10 +52,4 @@ const CheckoutPage = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        checkout: state.checkout
-    }
-}
-
-export default connect(mapStateToProps)(CheckoutPage);
+export default CheckoutPage;
