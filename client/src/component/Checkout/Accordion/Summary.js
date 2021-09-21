@@ -17,12 +17,21 @@ const useStyles = makeStyles((theme) => ({
     marginTop: {
         marginTop: theme.spacing(4)
     },
+    confirmBtn: {
+        marginRight: theme.spacing(5),
+        float: 'right',
+        padding: theme.spacing(1, 4),
+        marginBottom: theme.spacing(2),
+    },
 }));
 
 const Summary = (props) => {
     const classes = useStyles();
     const { expanded, handleExpand } = props;
 
+    const handleConfirmOrder = () => {
+
+    }
 
     return (
         <Accordion disabled={expanded !== ACCORDION_SUMMARY} className={classes.marginTop} expanded={expanded === ACCORDION_SUMMARY} onChange={handleExpand(ACCORDION_SUMMARY)}>
@@ -32,9 +41,15 @@ const Summary = (props) => {
                 <Typography variant='h4'>Your Order Summary</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <PageItems />
+                <Grid container direction='column' spacing={2}>
+                    <Grid item>
+                        <PageItems />
+                    </Grid>
+                    <Grid item>
+                        <Button onClick={handleConfirmOrder} color='primary' variant='contained' className={classes.confirmBtn}>Confirm My Orders</Button>
+                    </Grid>
+                </Grid>
             </AccordionDetails>
-            {/* <Button color='primary' variant='contained' className={classes.confirmBtn}>Confirm My Orders</Button> */}
         </Accordion>
     )
 }

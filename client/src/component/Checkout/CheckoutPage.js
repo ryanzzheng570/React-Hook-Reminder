@@ -3,14 +3,8 @@ import { checkOutStyle } from '../styles';
 import PageItems from './PageItems';
 import { connect } from 'react-redux';
 import {
-    Typography,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Button,
     Grid,
 } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeliveryMethod from './Accordion/DeliveryMethod';
 import ContactInformation from './Accordion/ContactInformation';
 import Payment from './Accordion/Payment';

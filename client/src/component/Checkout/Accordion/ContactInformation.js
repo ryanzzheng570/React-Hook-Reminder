@@ -68,6 +68,7 @@ const ContactInformation = (props) => {
                                     label='Name for the order'
                                     value={name}
                                     onChange={handleNameChange}
+                                    required
                                 />
                             </Grid>
                             <Grid item>
@@ -77,6 +78,7 @@ const ContactInformation = (props) => {
                                     label='Phone Number'
                                     value={phone}
                                     onChange={handlePhoneChange}
+                                    required
                                 />
                             </Grid>
                             <Grid item>
@@ -86,6 +88,7 @@ const ContactInformation = (props) => {
                                     label='Email'
                                     value={email}
                                     onChange={handleEmailChange}
+                                    required
                                 />
                             </Grid>
                         </Grid>
