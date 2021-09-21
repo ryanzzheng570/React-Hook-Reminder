@@ -9,12 +9,17 @@ import {
     FormControl,
     Grid,
     InputLabel,
+    FormControlLabel,
+    Checkbox
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { TextField } from '@mui/material';
 import Continue from '../Button/Continue';
 import moment from 'moment';
+import { connect } from 'react-redux';
+import { ACCORDION_CONTACTINFO, ACCORDION_DELIVERY, DELIVERY_DELIVERY, DELIVERY_PICK_UP } from '../../../util/constants';
+import { addDeliveryMethod } from '../../../store/utils/thunkCreators';
 
 const useStyles = makeStyles((theme) => ({
     confirmBtn: {
@@ -28,22 +33,24 @@ const useStyles = makeStyles((theme) => ({
     },
     marginLeft: {
         marginLeft: theme.spacing(3)
-    }
-}))
-
-const PICK_UP = "PickUp";
-const DELIVERY = "Delivery";
+    },
+    marginTop: {
+        marginTop: theme.spacing(4)
+    },
+}));
 
 const DeliveryMethod = (props) => {
     const classes = useStyles();
     const {
         expanded,
         handleExpand,
+        addDeliveryMethod,
+        nextStep
     } = props;
 
     const [pickupTime, setPickupTime] = useState(moment().format("YYYY-MM-DDTkk:mm"));
     const [deliveryMethod, setDeliveryMethod] = useState('');
-
+    const [isPayingCash, setIsPayingCash] = useState(false);
 
     const handleDeliverySelect = (e) => {
         setDeliveryMethod(e.target.value);
@@ -53,12 +60,18 @@ const DeliveryMethod = (props) => {
         setPickupTime(e.target.value);
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addDeliveryMethod(deliveryMethod, pickupTime, isPayingCash);
+        nextStep(ACCORDION_CONTACTINFO);
+    }
 
+    const handlePayingCashCheck = (e) => {
+        setIsPayingCash(e.target.checked)
     }
 
     return (
-        <Accordion className={classes.marginTop} expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
+        <Accordion className={classes.marginTop} expanded={expanded === ACCORDION_DELIVERY} onChange={handleExpand(ACCORDION_DELIVERY)}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >
@@ -82,37 +95,58 @@ const DeliveryMethod = (props) => {
                                         inputProps={{ 'aria-label': 'Without label' }}
                                         label="Delivery Method"
                                     >
-                                        <MenuItem value={PICK_UP}>Pick Up</MenuItem>
-                                        <MenuItem value={DELIVERY}>Delivery</MenuItem>
+                                        <MenuItem value={DELIVERY_PICK_UP}>Pick Up</MenuItem>
+                                        <MenuItem value={DELIVERY_DELIVERY}>Delivery</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Grid>
                         </Grid>
-
-                        {deliveryMethod === PICK_UP && (
-                            <Grid item container>
-                                <TextField
-                                    id='pickuptime'
-                                    label='Choose a pickup time'
-                                    type='datetime-local'
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
-                                    value={pickupTime}
-                                    onChange={handlePickupTimeSelect}
-                                />
-                                <Typography className={classes.marginLeft} component='h3' variant='body1'>*Pick Up Address: Ryan Home Street, Toronto, ON</Typography>
+                        {deliveryMethod && <Grid item container>
+                            <TextField
+                                id='pickuptime'
+                                label={`Choose a ${deliveryMethod === DELIVERY_PICK_UP ? 'pickup' : 'delivery'} time`}
+                                type='datetime-local'
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                value={pickupTime}
+                                onChange={handlePickupTimeSelect}
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        id='isSpecificDate'
+                                        checked={isPayingCash}
+                                        onChange={handlePayingCashCheck}
+                                        color='primary'
+                                    />}
+                                label="Would you like to pay cash?"
+                                className={classes.marginLeft}
+                            />
+                        </Grid>}
+                        {deliveryMethod === DELIVERY_PICK_UP && (
+                            <Grid item>
+                                <Typography component='h3' variant='body1'>*Pick Up Address: Ryan Home Street, Toronto, ON</Typography>
                             </Grid>
                         )}
-
+                    </Grid>
+                    <Grid item>
+                        <Continue type='submit' />
                     </Grid>
                 </form>
             </AccordionDetails>
-            <Grid item>
-                <Continue type='submit' />
-            </Grid>
+
         </Accordion>
     )
 }
 
-export default DeliveryMethod
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addDeliveryMethod: (deliveryMethod, time, isPayingCash) => {
+            dispatch(addDeliveryMethod(deliveryMethod, time, isPayingCash));
+        }
+    }
+};
+
+
+export default connect(null, mapDispatchToProps)(DeliveryMethod)

@@ -20,9 +20,6 @@ export const checkOutStyle = makeStyles((theme) => ({
         top: 0,
         left: 0,
     },
-    marginTop: {
-        marginTop: theme.spacing(4)
-    },
     confirmBtn: {
         marginRight: theme.spacing(5),
         float: 'right',

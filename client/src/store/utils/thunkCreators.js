@@ -3,7 +3,9 @@ import { setAvailableSushi } from "../availableSushi";
 import {
     checkoutAddSushi,
     checkoutModifySushi,
-    checkoutRemoveSushi
+    checkoutRemoveSushi,
+    checkoutAddDeliveryMethod,
+    checkoutAddContactInfo
 } from "../checkout";
 
 
@@ -23,4 +25,12 @@ export const modifyCartSushi = (checkoutItemId, quantity) => (dispatch) => {
 
 export const removeSushiFromCart = (checkoutItemId) => (dispatch) => {
     dispatch(checkoutRemoveSushi(checkoutItemId));
+}
+
+export const addDeliveryMethod = (deliverymMethod, time, isPayingCash) => (dispatch) => {
+    dispatch(checkoutAddDeliveryMethod(deliverymMethod, time, isPayingCash))
+}
+
+export const addContactInfo = (name, phone, email) => (dispatch) => {
+    dispatch(checkoutAddContactInfo(name, phone, email))
 }

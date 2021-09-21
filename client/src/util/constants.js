@@ -10,6 +10,15 @@ import SpecialIcon from "../component/Icon/SpecialIcon";
 export const serverAddress = 'http://localhost:5000';
 export const HTTP_HEADER = { 'Content-type': 'application/json' };
 
+//DELIVERY METHOD
+export const DELIVERY_PICK_UP = "PickUp";
+export const DELIVERY_DELIVERY = "Delivery";
+
+//ACCORDION SECTION 
+export const ACCORDION_DELIVERY = 'delivery';
+export const ACCORDION_CONTACTINFO = 'contact';
+export const ACCORDION_PAYMENT = 'payment';
+export const ACCORDION_SUMMARY = 'summary'
 
 //SUSHI Constants
 export const MAKI_ROLLS = 'Maki Rolls';

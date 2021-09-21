@@ -6,6 +6,7 @@ import {
     Paper,
     ButtonBase
 } from '@material-ui/core'
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 
 const PageItems = (props) => {
     const classes = useStyles();
-    const { items } = props
+    const { checkout } = props;
+    const { items } = checkout;
 
     return (
         <div className={classes.root}>
@@ -81,4 +83,10 @@ const PageItems = (props) => {
     )
 }
 
-export default PageItems
+const mapStateToProps = (state) => {
+    return {
+        checkout: state.checkout
+    }
+}
+
+export default connect(mapStateToProps)(PageItems);

@@ -18,8 +18,14 @@ export const mainTheme = createTheme({
     overrides: {
         MuiInput: {
             input: {
-                fontWeight: "bold"
+                // fontWeight: "bold"
             },
+            underline: {
+                '&:hover:not($disabled):before': {
+                    backgroundColor: 'rgb(255, 166, 0)',
+                    height: 1,
+                }
+            }
         },
     },
     palette: {
