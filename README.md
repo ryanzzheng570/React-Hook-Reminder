@@ -5,6 +5,12 @@
  - Added Shopping Cart to show the current selected items
  - Added Item modal to add items to shopping cart
 
+## In Progress
+ - Checkout page
+   - Basic layout (done)
+   - Handlers (mostly done except Confirming entire order)
+   - Decide the editing flow (enable/disable tag) (TODO)
+
 ## Todo
  - Check out page (In progress)
  - About page
