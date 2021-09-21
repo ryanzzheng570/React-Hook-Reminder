@@ -71,7 +71,7 @@ const DeliveryMethod = (props) => {
     }
 
     return (
-        <Accordion disabled={expanded !== ACCORDION_DELIVERY} className={classes.marginTop} expanded={expanded === ACCORDION_DELIVERY} onChange={handleExpand(ACCORDION_DELIVERY)}>
+        <Accordion className={classes.marginTop} expanded={expanded === ACCORDION_DELIVERY} onChange={handleExpand(ACCORDION_DELIVERY)}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >

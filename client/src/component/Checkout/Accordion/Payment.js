@@ -24,7 +24,7 @@ const Payment = (props) => {
     }
 
     return (
-        <Accordion disabled={expanded !== ACCORDION_PAYMENT} expanded={expanded === ACCORDION_PAYMENT} onChange={handleExpand(ACCORDION_PAYMENT)}>
+        <Accordion expanded={expanded === ACCORDION_PAYMENT} onChange={handleExpand(ACCORDION_PAYMENT)}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >

@@ -34,7 +34,7 @@ const Summary = (props) => {
     }
 
     return (
-        <Accordion disabled={expanded !== ACCORDION_SUMMARY} className={classes.marginTop} expanded={expanded === ACCORDION_SUMMARY} onChange={handleExpand(ACCORDION_SUMMARY)}>
+        <Accordion className={classes.marginTop} expanded={expanded === ACCORDION_SUMMARY} onChange={handleExpand(ACCORDION_SUMMARY)}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >

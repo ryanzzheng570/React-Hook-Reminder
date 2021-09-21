@@ -51,7 +51,7 @@ const ContactInformation = (props) => {
     }
 
     return (
-        <Accordion disabled={expanded !== ACCORDION_CONTACTINFO} expanded={expanded === ACCORDION_CONTACTINFO} onChange={handleExpand(ACCORDION_CONTACTINFO)}>
+        <Accordion expanded={expanded === ACCORDION_CONTACTINFO} onChange={handleExpand(ACCORDION_CONTACTINFO)}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >
