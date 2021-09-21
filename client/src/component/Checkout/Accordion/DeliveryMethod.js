@@ -18,7 +18,7 @@ import { TextField } from '@mui/material';
 import Continue from '../Button/Continue';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import { DELIVERY_DELIVERY, DELIVERY_PICK_UP } from '../../../util/constants';
+import { ACCORDION_CONTACTINFO, ACCORDION_DELIVERY, DELIVERY_DELIVERY, DELIVERY_PICK_UP } from '../../../util/constants';
 import { addDeliveryMethod } from '../../../store/utils/thunkCreators';
 
 const useStyles = makeStyles((theme) => ({
@@ -60,7 +60,7 @@ const DeliveryMethod = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addDeliveryMethod(deliveryMethod, pickupTime, isPayingCash);
-        nextStep('contact');
+        nextStep(ACCORDION_CONTACTINFO);
     }
 
     const handlePayingCashCheck = (e) => {
@@ -68,7 +68,7 @@ const DeliveryMethod = (props) => {
     }
 
     return (
-        <Accordion disabled={expanded !== 'delivery'} className={classes.marginTop} expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
+        <Accordion disabled={expanded !== ACCORDION_DELIVERY} className={classes.marginTop} expanded={expanded === ACCORDION_DELIVERY} onChange={handleExpand(ACCORDION_DELIVERY)}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >

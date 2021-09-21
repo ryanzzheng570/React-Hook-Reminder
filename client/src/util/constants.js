@@ -14,6 +14,12 @@ export const HTTP_HEADER = { 'Content-type': 'application/json' };
 export const DELIVERY_PICK_UP = "PickUp";
 export const DELIVERY_DELIVERY = "Delivery";
 
+//ACCORDION SECTION 
+export const ACCORDION_DELIVERY = 'delivery';
+export const ACCORDION_CONTACTINFO = 'contact';
+export const ACCORDION_PAYMENT = 'payment';
+export const ACCORDION_SUMMARY = 'summary'
+
 //SUSHI Constants
 export const MAKI_ROLLS = 'Maki Rolls';
 export const CLASSIC_SPICY_MAKI = 'Classic Spicy Maki';

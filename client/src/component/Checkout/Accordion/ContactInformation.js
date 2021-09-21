@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core';
 import Continue from '../Button/Continue';
 import { connect } from 'react-redux';
 import { addContactInfo } from '../../../store/utils/thunkCreators';
+import { ACCORDION_CONTACTINFO, ACCORDION_PAYMENT } from '../../../util/constants';
 
 const useStyles = makeStyles((theme) => ({
     input: {
@@ -46,11 +47,11 @@ const ContactInformation = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addContactInfo(name, phone, email);
-        nextStep('payment');
+        nextStep(ACCORDION_PAYMENT);
     }
 
     return (
-        <Accordion disabled={expanded !== 'contact'} expanded={expanded === 'contact'} onChange={handleExpand('contact')}>
+        <Accordion disabled={expanded !== ACCORDION_CONTACTINFO} expanded={expanded === ACCORDION_CONTACTINFO} onChange={handleExpand(ACCORDION_CONTACTINFO)}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >

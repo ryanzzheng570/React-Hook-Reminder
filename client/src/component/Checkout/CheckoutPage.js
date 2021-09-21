@@ -44,6 +44,7 @@ const CheckoutPage = (props) => {
                         handleExpand={handleExpand}
                         nextStep={handleContinue}
                     />
+
                     <Accordion disabled className={classes.marginTop} expanded={expanded === 'orders'} onChange={handleExpand('orders')}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
