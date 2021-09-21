@@ -10,6 +10,7 @@
  - About page
  - Make Reservation Page
  - Restaurant backgournd/ Contact information page
+ - Redux State saves after reload
  - Mobile View
 
 ## Available Scripts
