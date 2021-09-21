@@ -8,6 +8,7 @@ const CHECKOUT_ADD_SUSHI = "CHECKOUT_ADD_SUSHI";
 const CHECKOUT_MODIFY_SUSHI = "CHECKOUT_MODIFY_SUSHI";
 const CHECKOUT_REMOVE_SUSHI = "CHEKCOUT_REMOVE_SUSHI";
 const CHECKOUT_ADD_DELIVERY_METHOD = "CHECKOUT_ADD_DELIVERY_METHOD";
+const CHECKOUT_ADD_CONTACT_INFO = "CHECKOUT_ADD_CONTACT_INFO";
 
 export const checkoutAddSushi = (sushi) => {
     return {
@@ -44,6 +45,17 @@ export const checkoutAddDeliveryMethod = (deliveryMethod, time, isPayingCash) =>
             deliveryMethod,
             time,
             isPayingCash
+        }
+    }
+}
+
+export const checkoutAddContactInfo = (name, phone, email) => {
+    return {
+        type: CHECKOUT_ADD_CONTACT_INFO,
+        payload: {
+            name,
+            phone,
+            email
         }
     }
 }
@@ -87,6 +99,15 @@ const reducer = (state = initialState, action) => {
                     isPayingCash: action.payload.isPayingCash
                 }
             };
+        }
+        case CHECKOUT_ADD_CONTACT_INFO: {
+            return {
+                ...state, contact: {
+                    name: action.payload.name,
+                    phone: action.payload.phone,
+                    email: action.payload.email
+                }
+            }
         }
         default: {
             return state;

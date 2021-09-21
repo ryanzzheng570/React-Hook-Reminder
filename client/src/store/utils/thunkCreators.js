@@ -4,7 +4,8 @@ import {
     checkoutAddSushi,
     checkoutModifySushi,
     checkoutRemoveSushi,
-    checkoutAddDeliveryMethod
+    checkoutAddDeliveryMethod,
+    checkoutAddContactInfo
 } from "../checkout";
 
 
@@ -28,4 +29,8 @@ export const removeSushiFromCart = (checkoutItemId) => (dispatch) => {
 
 export const addDeliveryMethod = (deliverymMethod, time, isPayingCash) => (dispatch) => {
     dispatch(checkoutAddDeliveryMethod(deliverymMethod, time, isPayingCash))
+}
+
+export const addContactInfo = (name, phone, email) => (dispatch) => {
+    dispatch(checkoutAddContactInfo(name, phone, email))
 }

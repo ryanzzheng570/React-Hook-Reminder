@@ -10,6 +10,8 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core';
 import Continue from '../Button/Continue';
+import { connect } from 'react-redux';
+import { addContactInfo } from '../../../store/utils/thunkCreators';
 
 const useStyles = makeStyles((theme) => ({
     input: {
@@ -22,7 +24,8 @@ const ContactInformation = (props) => {
     const {
         expanded,
         handleExpand,
-        nextStep
+        nextStep,
+        addContactInfo
     } = props;
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -42,6 +45,7 @@ const ContactInformation = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        addContactInfo(name, phone, email);
         nextStep('payment');
     }
 
@@ -94,4 +98,12 @@ const ContactInformation = (props) => {
     )
 }
 
-export default ContactInformation
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addContactInfo: (name, phone, email) => {
+            dispatch(addContactInfo(name, phone, email));
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ContactInformation);
