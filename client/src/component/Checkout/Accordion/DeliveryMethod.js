@@ -12,7 +12,7 @@ import {
     FormControlLabel,
     Checkbox
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { TextField } from '@mui/material';
 import Continue from '../Button/Continue';
@@ -41,7 +41,8 @@ const DeliveryMethod = (props) => {
     const {
         expanded,
         handleExpand,
-        addDeliveryMethod
+        addDeliveryMethod,
+        nextStep
     } = props;
 
     const [pickupTime, setPickupTime] = useState(moment().format("YYYY-MM-DDTkk:mm"));
@@ -59,7 +60,7 @@ const DeliveryMethod = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addDeliveryMethod(deliveryMethod, pickupTime, isPayingCash);
-        handleExpand('contact');
+        nextStep('contact');
     }
 
     const handlePayingCashCheck = (e) => {
@@ -67,7 +68,7 @@ const DeliveryMethod = (props) => {
     }
 
     return (
-        <Accordion className={classes.marginTop} expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
+        <Accordion disabled={expanded !== 'delivery'} className={classes.marginTop} expanded={expanded === 'delivery'} onChange={handleExpand('delivery')}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
             >

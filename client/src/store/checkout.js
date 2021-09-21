@@ -55,7 +55,11 @@ const initialState = {
         time: '',
         isPayingCash: false
     },
-    contact: {},
+    contact: {
+        name: '',
+        phone: '',
+        email: ''
+    },
     isPaid: false
 }
 

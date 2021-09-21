@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeliveryMethod from './Accordion/DeliveryMethod';
+import ContactInformation from './Accordion/ContactInformation';
 
 
 const CheckoutPage = (props) => {
@@ -21,7 +22,12 @@ const CheckoutPage = (props) => {
 
 
     const handleExpand = (accordion) => (e, isExpanded) => {
+        console.log(accordion)
         setExpanded(isExpanded ? accordion : false);
+    }
+
+    const handleContinue = (nextStep) => {
+        setExpanded(nextStep);
     }
 
     return (
@@ -31,8 +37,13 @@ const CheckoutPage = (props) => {
                     <DeliveryMethod
                         expanded={expanded}
                         handleExpand={handleExpand}
+                        nextStep={handleContinue}
                     />
-
+                    <ContactInformation
+                        expanded={expanded}
+                        handleExpand={handleExpand}
+                        nextStep={handleContinue}
+                    />
                     <Accordion disabled className={classes.marginTop} expanded={expanded === 'orders'} onChange={handleExpand('orders')}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
