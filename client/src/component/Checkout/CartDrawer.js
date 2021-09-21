@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react';
 import {
     Drawer,
     Typography,
@@ -13,6 +13,7 @@ import DrawerItems from './DrawerItems';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import { getTotalPrice } from '../../util/utils';
 
 const paperWidth = 450;
 
@@ -59,26 +60,19 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
+
+
 //Drawer for CheckOut Cart
 const CartDrawer = (props) => {
     const classes = useStyle();
     const { open, close, checkout } = props;
+    const { items } = checkout;
     const history = useHistory();
 
     const handleConfirmCart = () => {
         close();
         history.push("/checkout");
     }
-
-    const getTotal = (checkout) => {
-        let total = 0;
-        checkout.forEach((item) => {
-            total = total + item.totalPrice
-        });
-        return total;
-    }
-
-    const memorizedSubtotal = useMemo(() => getTotal(checkout), [checkout])
 
     return (
         <Drawer
@@ -95,16 +89,14 @@ const CartDrawer = (props) => {
             </List>
             <Divider />
             <List>
-                {checkout && checkout.length > 0 ?
+                {items && items.length > 0 ?
                     <>
-                        <DrawerItems
-                            items={checkout}
-                        />
+                        <DrawerItems />
                         <div className={classes.bottomPush}>
                             <Divider />
                             <Typography gutterBottom className={classes.subtotal} variant='h4'>
                                 Subtotal:
-                                <span className={classes.price}>${memorizedSubtotal}</span>
+                                <span className={classes.price}>${getTotalPrice(items)}</span>
                             </Typography>
                             <Typography color='textSecondary' paragraph variant='body1'>
                                 Taxes and shipping calculated at checkout
