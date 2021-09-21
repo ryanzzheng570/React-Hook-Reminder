@@ -41,7 +41,6 @@ const Navbar = (props) => {
     const { checkout } = props;
     const { items } = checkout;
     const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
-    console.log(items.length);
     const handleCheckOutOpen = () => {
         setIsCartDrawerOpen(true);
     };
