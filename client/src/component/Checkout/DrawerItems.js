@@ -41,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
 
 const DrawerItems = (props) => {
     const classes = useStyles();
-    const { modifyCartSushi, removeSushiFromCart, items } = props
+    const { modifyCartSushi, removeSushiFromCart, checkout } = props
+    const { items } = checkout;
 
     const handleMinusClick = (checkoutItemId, currQuantity) => {
         modifyCartSushi(checkoutItemId, currQuantity - 1);
@@ -89,6 +90,12 @@ const DrawerItems = (props) => {
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        checkout: state.checkout
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         modifyCartSushi: (checkoutItemId, quantity) => {
@@ -100,4 +107,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(DrawerItems);
+export default connect(mapStateToProps, mapDispatchToProps)(DrawerItems);

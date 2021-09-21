@@ -63,6 +63,7 @@ const DetailedItemModal = (props) => {
         checkout,
         image
     } = props;
+    const { items } = checkout;
 
     const [specialRequest, setSpecialRequest] = useState('');
     const [quantity, setQuantity] = useState(1);
@@ -84,7 +85,7 @@ const DetailedItemModal = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const order = {
-            checkoutItemId: checkout.length + 1,
+            checkoutItemId: items.length + 1,
             name: props.name,
             quantity: quantity,
             specialRequest: specialRequest,

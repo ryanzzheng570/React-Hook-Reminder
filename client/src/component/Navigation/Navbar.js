@@ -39,17 +39,15 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = (props) => {
     const classes = useStyles();
     const { checkout } = props;
+    const { items } = checkout;
     const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
-
-
+    console.log(items.length);
     const handleCheckOutOpen = () => {
         setIsCartDrawerOpen(true);
     };
     const handleCheckOutClose = () => {
         setIsCartDrawerOpen(false);
     };
-
-
 
     return (
         <div className={classes.root}>
@@ -59,7 +57,7 @@ const Navbar = (props) => {
                         Ryan's Sushi Restaurant
                     </Typography>
                     <IconButton className={classes.cartButton} onClick={handleCheckOutOpen}>
-                        <Badge badgeContent={checkout.length} color='secondary'>
+                        <Badge badgeContent={items.length} color='secondary'>
                             <ShoppingCartOutlinedIcon style={{ fontSize: 32 }} />
                         </Badge>
                     </IconButton>
